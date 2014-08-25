@@ -10,11 +10,19 @@
     <height>539</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Khmer OS</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MACDCoin - Debug window</string>
   </property>
   <property name="autoFillBackground">
-   <bool>true</bool>
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(27, 40, 54);</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -22,64 +30,180 @@
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="font">
+      <font>
+       <family>Khmer OS</family>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:white;</string>
+     </property>
+     <property name="tabShape">
+      <enum>QTabWidget::Triangular</enum>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
+     <property name="elideMode">
+      <enum>Qt::ElideNone</enum>
+     </property>
+     <property name="usesScrollButtons">
+      <bool>true</bool>
+     </property>
+     <property name="documentMode">
+      <bool>true</bool>
+     </property>
+     <property name="movable">
+      <bool>true</bool>
+     </property>
      <widget class="QWidget" name="tab_info">
+      <property name="font">
+       <font>
+        <family>Khmer OS</family>
+       </font>
+      </property>
       <attribute name="title">
        <string>&amp;Information</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout" columnstretch="0,1">
+      <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,0,0">
        <property name="horizontalSpacing">
         <number>12</number>
        </property>
-       <item row="0" column="0">
+       <item row="11" column="1">
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="1">
+        <spacer name="verticalSpacer_5">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="7" column="1">
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLabel" name="label_13">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Startup time</string>
+         </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
         <widget class="QLabel" name="label_9">
          <property name="font">
           <font>
+           <family>Khmer OS</family>
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string>MACDCoin Core</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item row="2" column="1">
         <widget class="QLabel" name="label_5">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
          <property name="text">
           <string>Client name</string>
          </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="clientName">
-         <property name="cursor">
-          <cursorShape>IBeamCursor</cursorShape>
-         </property>
-         <property name="text">
-          <string>N/A</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         <property name="indent">
+          <number>10</number>
          </property>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item row="3" column="1">
         <widget class="QLabel" name="label_6">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
          <property name="text">
           <string>Client version</string>
          </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
         </widget>
        </item>
-       <item row="2" column="1">
+       <item row="3" column="3">
         <widget class="QLabel" name="clientVersion">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -87,13 +211,44 @@
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
          </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
+       <item row="5" column="1">
+        <widget class="QLabel" name="label_12">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Build date</string>
+         </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
         <widget class="QLabel" name="label_14">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
          <property name="text">
           <string>Using OpenSSL version</string>
          </property>
@@ -102,10 +257,19 @@
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
+       <item row="4" column="3">
         <widget class="QLabel" name="openSSLVersion">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -113,22 +277,27 @@
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
          </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
         </widget>
        </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_12">
-         <property name="text">
-          <string>Build date</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="1">
+       <item row="5" column="3">
         <widget class="QLabel" name="buildDate">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -136,22 +305,46 @@
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
          </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
         </widget>
        </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_13">
+       <item row="9" column="1">
+        <widget class="QLabel" name="label_7">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
          <property name="text">
-          <string>Startup time</string>
+          <string>Number of connections</string>
+         </property>
+         <property name="indent">
+          <number>10</number>
          </property>
         </widget>
        </item>
-       <item row="5" column="1">
+       <item row="6" column="3">
         <widget class="QLabel" name="startupTime">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -159,111 +352,159 @@
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
          </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
         </widget>
        </item>
-       <item row="6" column="0">
+       <item row="8" column="1">
         <widget class="QLabel" name="label_11">
          <property name="font">
           <font>
+           <family>Khmer OS</family>
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string>Network</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="0">
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string>Number of connections</string>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="1">
-        <widget class="QLabel" name="numberOfConnections">
-         <property name="cursor">
-          <cursorShape>IBeamCursor</cursorShape>
-         </property>
-         <property name="text">
-          <string>N/A</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string>On testnet</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="1">
+       <item row="10" column="3">
         <widget class="QCheckBox" name="isTestNet">
          <property name="enabled">
           <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string/>
          </property>
         </widget>
        </item>
-       <item row="9" column="0">
+       <item row="10" column="1">
+        <widget class="QLabel" name="label_8">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>On testnet</string>
+         </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="3">
+        <widget class="QLabel" name="numberOfConnections">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>N/A</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="1">
+        <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Current number of blocks</string>
+         </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
         <widget class="QLabel" name="label_10">
          <property name="font">
           <font>
+           <family>Khmer OS</family>
            <weight>75</weight>
            <bold>true</bold>
           </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string>Block chain</string>
          </property>
         </widget>
        </item>
-       <item row="10" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>Current number of blocks</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="1">
-        <widget class="QLabel" name="numberOfBlocks">
-         <property name="cursor">
-          <cursorShape>IBeamCursor</cursorShape>
-         </property>
-         <property name="text">
-          <string>N/A</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::PlainText</enum>
-         </property>
-         <property name="textInteractionFlags">
-          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="0">
+       <item row="14" column="1">
         <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
          <property name="text">
           <string>Estimated total blocks</string>
          </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
         </widget>
        </item>
-       <item row="11" column="1">
-        <widget class="QLabel" name="totalBlocks">
+       <item row="13" column="3">
+        <widget class="QLabel" name="numberOfBlocks">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -271,22 +512,46 @@
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
          </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
         </widget>
        </item>
-       <item row="12" column="0">
+       <item row="15" column="1">
         <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
          <property name="text">
           <string>Last block time</string>
          </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
         </widget>
        </item>
-       <item row="12" column="1">
-        <widget class="QLabel" name="lastBlockTime">
+       <item row="14" column="3">
+        <widget class="QLabel" name="totalBlocks">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="cursor">
           <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string>N/A</string>
@@ -294,67 +559,65 @@
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
          </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
          <property name="textInteractionFlags">
           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
          </property>
         </widget>
        </item>
-       <item row="13" column="0">
+       <item row="15" column="3">
+        <widget class="QLabel" name="lastBlockTime">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>N/A</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
+        </widget>
+       </item>
+       <item row="16" column="1">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>20</height>
+           <height>10</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="14" column="0">
-        <widget class="QLabel" name="labelDebugLogfile">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Debug log file</string>
-         </property>
-        </widget>
-       </item>
-       <item row="15" column="0">
-        <widget class="QPushButton" name="openDebugLogfileButton">
-         <property name="toolTip">
-          <string>Open the MACDCoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
-         </property>
-         <property name="text">
-          <string>&amp;Open</string>
-         </property>
-         <property name="autoDefault">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="16" column="0">
-        <widget class="QLabel" name="labelCLOptions">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Command-line options</string>
-         </property>
-        </widget>
-       </item>
-       <item row="17" column="0">
+       <item row="20" column="1">
         <widget class="QPushButton" name="showCLOptionsButton">
          <property name="toolTip">
           <string>Show the MACDCoin-Qt help message to get a list with possible MACDCoin command-line options.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
          </property>
          <property name="text">
           <string>&amp;Show</string>
@@ -364,15 +627,112 @@
          </property>
         </widget>
        </item>
-       <item row="18" column="0">
+       <item row="19" column="1">
+        <widget class="QLabel" name="labelCLOptions">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Command-line options</string>
+         </property>
+        </widget>
+       </item>
+       <item row="21" column="1">
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>20</width>
-           <height>40</height>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="19" column="3">
+        <widget class="QLabel" name="labelDebugLogfile">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>Debug log file</string>
+         </property>
+        </widget>
+       </item>
+       <item row="20" column="3">
+        <widget class="QPushButton" name="openDebugLogfileButton">
+         <property name="toolTip">
+          <string>Open the MACDCoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>&amp;Open</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QLabel" name="clientName">
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>IBeamCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;</string>
+         </property>
+         <property name="text">
+          <string>N/A</string>
+         </property>
+         <property name="textFormat">
+          <enum>Qt::PlainText</enum>
+         </property>
+         <property name="indent">
+          <number>10</number>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>10</width>
+           <height>20</height>
           </size>
          </property>
         </spacer>
@@ -388,12 +748,39 @@
         <number>3</number>
        </property>
        <item>
+        <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QTextEdit" name="messagesWidget">
          <property name="minimumSize">
           <size>
            <width>0</width>
            <height>100</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Khmer OS</family>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;
+border-color:rgba(37, 170, 225, 255);
+border-width:1px;
+border-style:solid;</string>
          </property>
          <property name="readOnly">
           <bool>true</bool>
@@ -407,19 +794,55 @@
         </widget>
        </item>
        <item>
+        <spacer name="verticalSpacer_7">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <property name="spacing">
           <number>3</number>
          </property>
          <item>
           <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <family>Khmer OS</family>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:rgba(37, 170, 225, 255);</string>
+           </property>
            <property name="text">
             <string notr="true">&gt;</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QLineEdit" name="lineEdit">
+           <property name="font">
+            <font>
+             <family>Khmer OS</family>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:white;
+border-bottom-color:rgba(37, 170, 225, 255);
+border-bottom-width:1px;
+border-style:solid;</string>
+           </property>
+          </widget>
          </item>
          <item>
           <widget class="QPushButton" name="clearButton">

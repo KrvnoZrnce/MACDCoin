@@ -108,7 +108,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     overviewPage = new OverviewPage();
 
     transactionsPage = new QWidget(this);
-    transactionsPage->setStyleSheet("QWidget{background-color:rgb(27, 40, 54);}");
+    transactionsPage->setStyleSheet("QWidget{background-color:rgb(27, 40, 54);background-image: url(:/images/base_back);}");
     QVBoxLayout *vbox = new QVBoxLayout();
     transactionView = new TransactionView(this);
     vbox->addWidget(transactionView);

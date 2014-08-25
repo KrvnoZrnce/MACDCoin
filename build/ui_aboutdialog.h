@@ -69,6 +69,7 @@ public:
         label = new QLabel(AboutDialog);
         label->setObjectName(QString::fromUtf8("label"));
         label->setCursor(QCursor(Qt::IBeamCursor));
+        label->setStyleSheet(QString::fromUtf8("color:white;"));
         label->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         horizontalLayout->addWidget(label);
@@ -76,6 +77,7 @@ public:
         versionLabel = new QLabel(AboutDialog);
         versionLabel->setObjectName(QString::fromUtf8("versionLabel"));
         versionLabel->setCursor(QCursor(Qt::IBeamCursor));
+        versionLabel->setStyleSheet(QString::fromUtf8("color:white;"));
         versionLabel->setText(QString::fromUtf8("0.4.101-beta"));
         versionLabel->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
@@ -91,6 +93,7 @@ public:
         copyrightLabel = new QLabel(AboutDialog);
         copyrightLabel->setObjectName(QString::fromUtf8("copyrightLabel"));
         copyrightLabel->setCursor(QCursor(Qt::IBeamCursor));
+        copyrightLabel->setStyleSheet(QString::fromUtf8("color:white;"));
         copyrightLabel->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         verticalLayout_2->addWidget(copyrightLabel);
@@ -98,6 +101,7 @@ public:
         label_2 = new QLabel(AboutDialog);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setCursor(QCursor(Qt::IBeamCursor));
+        label_2->setStyleSheet(QString::fromUtf8("color:white;"));
         label_2->setWordWrap(true);
         label_2->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
@@ -110,6 +114,7 @@ public:
         buttonBox = new QDialogButtonBox(AboutDialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
         buttonBox->setAutoFillBackground(true);
+        buttonBox->setStyleSheet(QString::fromUtf8("color:white;"));
         buttonBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Ok);

@@ -71,6 +71,7 @@ public:
             CoinControlDialog->setObjectName(QString::fromUtf8("CoinControlDialog"));
         CoinControlDialog->resize(1000, 500);
         CoinControlDialog->setAutoFillBackground(true);
+        CoinControlDialog->setStyleSheet(QString::fromUtf8("color:white;"));
         CoinControlDialog->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayout = new QVBoxLayout(CoinControlDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));

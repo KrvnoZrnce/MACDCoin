@@ -302,17 +302,20 @@ public:
 
         okButton = new QPushButton(OptionsDialog);
         okButton->setObjectName(QString::fromUtf8("okButton"));
+        okButton->setStyleSheet(QString::fromUtf8("color:white;"));
 
         horizontalLayout_Buttons->addWidget(okButton);
 
         cancelButton = new QPushButton(OptionsDialog);
         cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
+        cancelButton->setStyleSheet(QString::fromUtf8("color:white;"));
         cancelButton->setAutoDefault(false);
 
         horizontalLayout_Buttons->addWidget(cancelButton);
 
         applyButton = new QPushButton(OptionsDialog);
         applyButton->setObjectName(QString::fromUtf8("applyButton"));
+        applyButton->setStyleSheet(QString::fromUtf8("color:white;"));
         applyButton->setAutoDefault(false);
 
         horizontalLayout_Buttons->addWidget(applyButton);
@@ -331,7 +334,7 @@ public:
 
         retranslateUi(OptionsDialog);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(OptionsDialog);

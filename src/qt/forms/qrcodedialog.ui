@@ -75,6 +75,9 @@
         <property name="enabled">
          <bool>true</bool>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color:white;</string>
+        </property>
         <property name="text">
          <string>Request Payment</string>
         </property>
@@ -87,6 +90,9 @@
         </property>
         <item row="1" column="0">
          <widget class="QLabel" name="lblLabel">
+          <property name="styleSheet">
+           <string notr="true">color:white;</string>
+          </property>
           <property name="text">
            <string>Label:</string>
           </property>
@@ -106,6 +112,9 @@
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="lblMessage">
+          <property name="styleSheet">
+           <string notr="true">color:white;</string>
+          </property>
           <property name="text">
            <string>Message:</string>
           </property>
@@ -130,6 +139,9 @@
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color:white;</string>
           </property>
           <property name="text">
            <string>Amount:</string>
@@ -177,6 +189,9 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnSaveAs">
+          <property name="styleSheet">
+           <string notr="true">color:white;</string>
+          </property>
           <property name="text">
            <string>&amp;Save As...</string>
           </property>
@@ -194,6 +209,7 @@
    <class>BitcoinAmountField</class>
    <extends>QSpinBox</extends>
    <header>bitcoinamountfield.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

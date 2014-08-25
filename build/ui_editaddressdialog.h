@@ -72,6 +72,7 @@ public:
 
         buttonBox = new QDialogButtonBox(EditAddressDialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setStyleSheet(QString::fromUtf8("color:white;"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 

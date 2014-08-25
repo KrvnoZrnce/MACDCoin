@@ -17,7 +17,8 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(27, 40, 54);</string>
+   <string notr="true">#AddressBookPage{background-color: rgb(27, 40, 54);
+background-image: url(:/images/base_back);}</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -59,7 +60,15 @@
       <string>Double-click to edit address or label</string>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">#tableView{
+gridline-color: rgba(1, 1, 1, 0);
+background-color:rgba(1, 1, 1, 0);
+border-color:rgba(1, 1, 1, 0);
+border-width:0px;
+border-style:solid;}
+
+QTextEdit { selection-background-color: darkblue;
+selection-color: red; }</string>
      </property>
      <property name="tabKeyNavigation">
       <bool>false</bool>
@@ -88,12 +97,19 @@
        <property name="toolTip">
         <string>Create a new address</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background-image:none;</string>
+       </property>
        <property name="text">
         <string>&amp;New Address</string>
        </property>
        <property name="icon">
         <iconset resource="../bitcoin.qrc">
          <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -102,6 +118,10 @@
        <property name="toolTip">
         <string>Copy the currently selected address to the system clipboard</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background-image:none;</string>
+       </property>
        <property name="text">
         <string>&amp;Copy Address</string>
        </property>
@@ -109,16 +129,26 @@
         <iconset resource="../bitcoin.qrc">
          <normaloff>:/icons/editcopy</normaloff>:/icons/editcopy</iconset>
        </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="showQRCode">
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background-image:none;</string>
+       </property>
        <property name="text">
         <string>Show &amp;QR Code</string>
        </property>
        <property name="icon">
         <iconset resource="../bitcoin.qrc">
          <normaloff>:/icons/qrcode</normaloff>:/icons/qrcode</iconset>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -127,12 +157,19 @@
        <property name="toolTip">
         <string>Sign a message to prove you own a MACDCoin address</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background-image:none;</string>
+       </property>
        <property name="text">
         <string>Sign &amp;Message</string>
        </property>
        <property name="icon">
         <iconset resource="../bitcoin.qrc">
          <normaloff>:/icons/edit</normaloff>:/icons/edit</iconset>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -141,12 +178,19 @@
        <property name="toolTip">
         <string>Verify a message to ensure it was signed with a specified MACDCoin address</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background-image:none;</string>
+       </property>
        <property name="text">
         <string>&amp;Verify Message</string>
        </property>
        <property name="icon">
         <iconset resource="../bitcoin.qrc">
          <normaloff>:/icons/transaction_0</normaloff>:/icons/transaction_0</iconset>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -155,12 +199,19 @@
        <property name="toolTip">
         <string>Delete the currently selected address from the list</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background-image:none;</string>
+       </property>
        <property name="text">
         <string>&amp;Delete</string>
        </property>
        <property name="icon">
         <iconset resource="../bitcoin.qrc">
          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -184,6 +235,10 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:white;
+background-image:none;</string>
        </property>
        <property name="standardButtons">
         <set>QDialogButtonBox::Ok</set>

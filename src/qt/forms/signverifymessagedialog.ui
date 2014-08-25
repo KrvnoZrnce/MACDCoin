@@ -10,11 +10,22 @@
     <height>380</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <family>Khmer OS System</family>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Signatures - Sign / Verify a Message</string>
   </property>
   <property name="autoFillBackground">
-   <bool>true</bool>
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(27, 40, 54);
+border-color:rgba(0, 0, 0, 0);
+border-width:1px;
+border-style:solid;</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -25,6 +36,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="styleSheet">
+      <string notr="true">color:white;</string>
+     </property>
      <property name="currentIndex">
       <number>1</number>
      </property>
@@ -35,6 +49,11 @@
       <layout class="QVBoxLayout" name="verticalLayout_SM">
        <item>
         <widget class="QLabel" name="infoLabel_SM">
+         <property name="font">
+          <font>
+           <family>Khmer OS System</family>
+          </font>
+         </property>
          <property name="text">
           <string>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</string>
          </property>
@@ -53,8 +72,16 @@
          </property>
          <item>
           <widget class="QValidatedLineEdit" name="addressIn_SM">
+           <property name="font">
+            <font>
+             <family>Khmer OS System</family>
+            </font>
+           </property>
            <property name="toolTip">
             <string>The address to sign the message with (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:white; border-bottom-color:rgba(37, 170, 225, 255); border-bottom-style:solid; border-bottom-width:1px;</string>
            </property>
            <property name="maxLength">
             <number>34</number>
@@ -108,6 +135,9 @@
          <property name="toolTip">
           <string>Enter the message you want to sign here</string>
          </property>
+         <property name="styleSheet">
+          <string notr="true">color:white; border-color:rgba(37, 170, 225, 255); border-style:solid; border-width:1px;</string>
+         </property>
         </widget>
        </item>
        <item>
@@ -121,6 +151,9 @@
             <font>
              <italic>true</italic>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:white; border-bottom-color:rgba(37, 170, 225, 255); border-bottom-style:solid; border-bottom-width:1px;</string>
            </property>
            <property name="readOnly">
             <bool>true</bool>
@@ -150,6 +183,11 @@
         <layout class="QHBoxLayout" name="horizontalLayout_3_SM">
          <item>
           <widget class="QPushButton" name="signMessageButton_SM">
+           <property name="font">
+            <font>
+             <family>Khmer OS System</family>
+            </font>
+           </property>
            <property name="toolTip">
             <string>Sign the message to prove you own this MACDCoin address</string>
            </property>
@@ -166,7 +204,28 @@
           </widget>
          </item>
          <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>10</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="QPushButton" name="clearButton_SM">
+           <property name="font">
+            <font>
+             <family>Khmer OS System</family>
+            </font>
+           </property>
            <property name="toolTip">
             <string>Reset all sign message fields</string>
            </property>
@@ -259,6 +318,9 @@
            <property name="toolTip">
             <string>The address the message was signed with (e.g. 4Zo1ga6xuKuQ7JV7M9rGDoxdbYwV5zgQJ5)</string>
            </property>
+           <property name="styleSheet">
+            <string notr="true">color:white; border-bottom-color:rgba(37, 170, 225, 255); border-bottom-style:solid; border-bottom-width:1px;</string>
+           </property>
            <property name="maxLength">
             <number>34</number>
            </property>
@@ -287,10 +349,18 @@
         </layout>
        </item>
        <item>
-        <widget class="QPlainTextEdit" name="messageIn_VM"/>
+        <widget class="QPlainTextEdit" name="messageIn_VM">
+         <property name="styleSheet">
+          <string notr="true">color:white; border-color:rgba(37, 170, 225, 255); border-style:solid; border-width:1px;</string>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QValidatedLineEdit" name="signatureIn_VM"/>
+        <widget class="QValidatedLineEdit" name="signatureIn_VM">
+         <property name="styleSheet">
+          <string notr="true">color:white; border-bottom-color:rgba(37, 170, 225, 255); border-bottom-style:solid; border-bottom-width:1px;</string>
+         </property>
+        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2_VM">
@@ -298,6 +368,9 @@
           <widget class="QPushButton" name="verifyMessageButton_VM">
            <property name="toolTip">
             <string>Verify the message to ensure it was signed with the specified MACDCoin address</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:white;</string>
            </property>
            <property name="text">
             <string>&amp;Verify Message</string>
@@ -312,9 +385,28 @@
           </widget>
          </item>
          <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>10</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
           <widget class="QPushButton" name="clearButton_VM">
            <property name="toolTip">
             <string>Reset all verify message fields</string>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color:white;</string>
            </property>
            <property name="text">
             <string>Clear &amp;All</string>

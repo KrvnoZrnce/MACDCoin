@@ -50,6 +50,7 @@ public:
 
         buttonBox = new QDialogButtonBox(TransactionDescDialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setStyleSheet(QString::fromUtf8("color:white;"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Close);
 

@@ -48,7 +48,8 @@ public:
             AddressBookPage->setObjectName(QString::fromUtf8("AddressBookPage"));
         AddressBookPage->resize(984, 380);
         AddressBookPage->setAutoFillBackground(false);
-        AddressBookPage->setStyleSheet(QString::fromUtf8("background-color: rgb(27, 40, 54);"));
+        AddressBookPage->setStyleSheet(QString::fromUtf8("#AddressBookPage{background-color: rgb(27, 40, 54);\n"
+"background-image: url(:/images/base_back);}"));
         AddressBookPage->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayout = new QVBoxLayout(AddressBookPage);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -68,7 +69,15 @@ public:
         tableView = new QTableView(AddressBookPage);
         tableView->setObjectName(QString::fromUtf8("tableView"));
         tableView->setContextMenuPolicy(Qt::CustomContextMenu);
-        tableView->setStyleSheet(QString::fromUtf8(""));
+        tableView->setStyleSheet(QString::fromUtf8("#tableView{\n"
+"gridline-color: rgba(1, 1, 1, 0);\n"
+"background-color:rgba(1, 1, 1, 0);\n"
+"border-color:rgba(1, 1, 1, 0);\n"
+"border-width:0px;\n"
+"border-style:solid;}\n"
+"\n"
+"QTextEdit { selection-background-color: darkblue;\n"
+"selection-color: red; }"));
         tableView->setTabKeyNavigation(false);
         tableView->setAlternatingRowColors(true);
         tableView->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -82,49 +91,67 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         newAddressButton = new QPushButton(AddressBookPage);
         newAddressButton->setObjectName(QString::fromUtf8("newAddressButton"));
+        newAddressButton->setStyleSheet(QString::fromUtf8("color:white;\n"
+"background-image:none;"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icons/add"), QSize(), QIcon::Normal, QIcon::Off);
         newAddressButton->setIcon(icon);
+        newAddressButton->setFlat(true);
 
         horizontalLayout->addWidget(newAddressButton);
 
         copyToClipboard = new QPushButton(AddressBookPage);
         copyToClipboard->setObjectName(QString::fromUtf8("copyToClipboard"));
+        copyToClipboard->setStyleSheet(QString::fromUtf8("color:white;\n"
+"background-image:none;"));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/icons/editcopy"), QSize(), QIcon::Normal, QIcon::Off);
         copyToClipboard->setIcon(icon1);
+        copyToClipboard->setFlat(true);
 
         horizontalLayout->addWidget(copyToClipboard);
 
         showQRCode = new QPushButton(AddressBookPage);
         showQRCode->setObjectName(QString::fromUtf8("showQRCode"));
+        showQRCode->setStyleSheet(QString::fromUtf8("color:white;\n"
+"background-image:none;"));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/icons/qrcode"), QSize(), QIcon::Normal, QIcon::Off);
         showQRCode->setIcon(icon2);
+        showQRCode->setFlat(true);
 
         horizontalLayout->addWidget(showQRCode);
 
         signMessage = new QPushButton(AddressBookPage);
         signMessage->setObjectName(QString::fromUtf8("signMessage"));
+        signMessage->setStyleSheet(QString::fromUtf8("color:white;\n"
+"background-image:none;"));
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
         signMessage->setIcon(icon3);
+        signMessage->setFlat(true);
 
         horizontalLayout->addWidget(signMessage);
 
         verifyMessage = new QPushButton(AddressBookPage);
         verifyMessage->setObjectName(QString::fromUtf8("verifyMessage"));
+        verifyMessage->setStyleSheet(QString::fromUtf8("color:white;\n"
+"background-image:none;"));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/icons/transaction_0"), QSize(), QIcon::Normal, QIcon::Off);
         verifyMessage->setIcon(icon4);
+        verifyMessage->setFlat(true);
 
         horizontalLayout->addWidget(verifyMessage);
 
         deleteButton = new QPushButton(AddressBookPage);
         deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
+        deleteButton->setStyleSheet(QString::fromUtf8("color:white;\n"
+"background-image:none;"));
         QIcon icon5;
         icon5.addFile(QString::fromUtf8(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
         deleteButton->setIcon(icon5);
+        deleteButton->setFlat(true);
 
         horizontalLayout->addWidget(deleteButton);
 
@@ -139,6 +166,8 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(buttonBox->sizePolicy().hasHeightForWidth());
         buttonBox->setSizePolicy(sizePolicy);
+        buttonBox->setStyleSheet(QString::fromUtf8("color:white;\n"
+"background-image:none;"));
         buttonBox->setStandardButtons(QDialogButtonBox::Ok);
 
         horizontalLayout->addWidget(buttonBox);

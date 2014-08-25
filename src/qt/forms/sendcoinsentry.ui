@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>729</width>
-    <height>137</height>
+    <height>143</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(27, 40, 54);
+   <string notr="true">background-color: rgba(27, 40, 54, 0);
 border-color:rgba(0, 0, 0, 0);
 border-width:1px;
 border-style:solid;</string>

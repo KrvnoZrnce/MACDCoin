@@ -68,6 +68,7 @@ public:
         formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         passLabel1 = new QLabel(AskPassphraseDialog);
         passLabel1->setObjectName(QString::fromUtf8("passLabel1"));
+        passLabel1->setStyleSheet(QString::fromUtf8("color:white;"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, passLabel1);
 
@@ -79,6 +80,7 @@ public:
 
         passLabel2 = new QLabel(AskPassphraseDialog);
         passLabel2->setObjectName(QString::fromUtf8("passLabel2"));
+        passLabel2->setStyleSheet(QString::fromUtf8("color:white;"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, passLabel2);
 
@@ -90,6 +92,7 @@ public:
 
         passLabel3 = new QLabel(AskPassphraseDialog);
         passLabel3->setObjectName(QString::fromUtf8("passLabel3"));
+        passLabel3->setStyleSheet(QString::fromUtf8("color:white;"));
 
         formLayout->setWidget(2, QFormLayout::LabelRole, passLabel3);
 
@@ -121,6 +124,7 @@ public:
 
         buttonBox = new QDialogButtonBox(AskPassphraseDialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setStyleSheet(QString::fromUtf8("color:white"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 

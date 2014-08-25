@@ -116,7 +116,7 @@ TransactionView::TransactionView(QWidget *parent) :
     vlayout->addWidget(view);
     vlayout->setSpacing(0);
     int width = view->verticalScrollBar()->sizeHint().width();
-    view->setStyleSheet("QTableView{border-color:rgba(37, 170, 255, 155); border-width:1px; border-style:solid;background-color: rgb(27, 40, 54);color:white;}");
+    view->setStyleSheet("QTableView{border-color:rgba(37, 170, 255, 155); border-width:1px; border-style:solid;background-color: rgb(27, 40, 54);color:white; background-image:none;}");
 
     // Cover scroll bar width with spacing
 #ifdef Q_OS_MAC

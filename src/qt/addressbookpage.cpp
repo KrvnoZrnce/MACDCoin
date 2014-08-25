@@ -137,7 +137,7 @@ void AddressBookPage::setModel(AddressTableModel *model)
     ui->tableView->horizontalHeader()->setResizeMode(
             AddressTableModel::Label, QHeaderView::Stretch);
 
-    ui->tableView->setStyleSheet("QTableView {selection-background-color:red; border-color:rgba(37, 170, 225, 255); border-width:1px; border-style:solid; color:white;} QTableCornerButton::section {background: red; color:yellow}");
+    ui->tableView->setStyleSheet("QTableView{border-color:rgba(37, 170, 255, 155); border-width:1px; border-style:solid;background-color: rgba(27, 40, 54, 0);color:white; background-image:none;}");
 
 
     connect(ui->tableView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),

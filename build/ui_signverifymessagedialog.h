@@ -47,6 +47,7 @@ public:
     QPushButton *copySignatureButton_SM;
     QHBoxLayout *horizontalLayout_3_SM;
     QPushButton *signMessageButton_SM;
+    QSpacerItem *horizontalSpacer;
     QPushButton *clearButton_SM;
     QSpacerItem *horizontalSpacer_1_SM;
     QLabel *statusLabel_SM;
@@ -61,6 +62,7 @@ public:
     QValidatedLineEdit *signatureIn_VM;
     QHBoxLayout *horizontalLayout_2_VM;
     QPushButton *verifyMessageButton_VM;
+    QSpacerItem *horizontalSpacer_2;
     QPushButton *clearButton_VM;
     QSpacerItem *horizontalSpacer_1_VM;
     QLabel *statusLabel_VM;
@@ -71,19 +73,28 @@ public:
         if (SignVerifyMessageDialog->objectName().isEmpty())
             SignVerifyMessageDialog->setObjectName(QString::fromUtf8("SignVerifyMessageDialog"));
         SignVerifyMessageDialog->resize(700, 380);
-        SignVerifyMessageDialog->setAutoFillBackground(true);
+        QFont font;
+        font.setFamily(QString::fromUtf8("Khmer OS System"));
+        SignVerifyMessageDialog->setFont(font);
+        SignVerifyMessageDialog->setAutoFillBackground(false);
+        SignVerifyMessageDialog->setStyleSheet(QString::fromUtf8("background-color: rgb(27, 40, 54);\n"
+"border-color:rgba(0, 0, 0, 0);\n"
+"border-width:1px;\n"
+"border-style:solid;"));
         SignVerifyMessageDialog->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         SignVerifyMessageDialog->setModal(true);
         verticalLayout = new QVBoxLayout(SignVerifyMessageDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         tabWidget = new QTabWidget(SignVerifyMessageDialog);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tabWidget->setStyleSheet(QString::fromUtf8("color:white;"));
         tabSignMessage = new QWidget();
         tabSignMessage->setObjectName(QString::fromUtf8("tabSignMessage"));
         verticalLayout_SM = new QVBoxLayout(tabSignMessage);
         verticalLayout_SM->setObjectName(QString::fromUtf8("verticalLayout_SM"));
         infoLabel_SM = new QLabel(tabSignMessage);
         infoLabel_SM->setObjectName(QString::fromUtf8("infoLabel_SM"));
+        infoLabel_SM->setFont(font);
         infoLabel_SM->setTextFormat(Qt::PlainText);
         infoLabel_SM->setWordWrap(true);
 
@@ -94,6 +105,8 @@ public:
         horizontalLayout_1_SM->setObjectName(QString::fromUtf8("horizontalLayout_1_SM"));
         addressIn_SM = new QValidatedLineEdit(tabSignMessage);
         addressIn_SM->setObjectName(QString::fromUtf8("addressIn_SM"));
+        addressIn_SM->setFont(font);
+        addressIn_SM->setStyleSheet(QString::fromUtf8("color:white; border-bottom-color:rgba(37, 170, 225, 255); border-bottom-style:solid; border-bottom-width:1px;"));
         addressIn_SM->setMaxLength(34);
 
         horizontalLayout_1_SM->addWidget(addressIn_SM);
@@ -121,6 +134,7 @@ public:
 
         messageIn_SM = new QPlainTextEdit(tabSignMessage);
         messageIn_SM->setObjectName(QString::fromUtf8("messageIn_SM"));
+        messageIn_SM->setStyleSheet(QString::fromUtf8("color:white; border-color:rgba(37, 170, 225, 255); border-style:solid; border-width:1px;"));
 
         verticalLayout_SM->addWidget(messageIn_SM);
 
@@ -129,9 +143,10 @@ public:
         horizontalLayout_2_SM->setObjectName(QString::fromUtf8("horizontalLayout_2_SM"));
         signatureOut_SM = new QLineEdit(tabSignMessage);
         signatureOut_SM->setObjectName(QString::fromUtf8("signatureOut_SM"));
-        QFont font;
-        font.setItalic(true);
-        signatureOut_SM->setFont(font);
+        QFont font1;
+        font1.setItalic(true);
+        signatureOut_SM->setFont(font1);
+        signatureOut_SM->setStyleSheet(QString::fromUtf8("color:white; border-bottom-color:rgba(37, 170, 225, 255); border-bottom-style:solid; border-bottom-width:1px;"));
         signatureOut_SM->setReadOnly(true);
 
         horizontalLayout_2_SM->addWidget(signatureOut_SM);
@@ -152,6 +167,7 @@ public:
         horizontalLayout_3_SM->setObjectName(QString::fromUtf8("horizontalLayout_3_SM"));
         signMessageButton_SM = new QPushButton(tabSignMessage);
         signMessageButton_SM->setObjectName(QString::fromUtf8("signMessageButton_SM"));
+        signMessageButton_SM->setFont(font);
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/icons/edit"), QSize(), QIcon::Normal, QIcon::Off);
         signMessageButton_SM->setIcon(icon3);
@@ -159,8 +175,13 @@ public:
 
         horizontalLayout_3_SM->addWidget(signMessageButton_SM);
 
+        horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_3_SM->addItem(horizontalSpacer);
+
         clearButton_SM = new QPushButton(tabSignMessage);
         clearButton_SM->setObjectName(QString::fromUtf8("clearButton_SM"));
+        clearButton_SM->setFont(font);
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
         clearButton_SM->setIcon(icon4);
@@ -174,10 +195,10 @@ public:
 
         statusLabel_SM = new QLabel(tabSignMessage);
         statusLabel_SM->setObjectName(QString::fromUtf8("statusLabel_SM"));
-        QFont font1;
-        font1.setBold(true);
-        font1.setWeight(75);
-        statusLabel_SM->setFont(font1);
+        QFont font2;
+        font2.setBold(true);
+        font2.setWeight(75);
+        statusLabel_SM->setFont(font2);
         statusLabel_SM->setWordWrap(true);
 
         horizontalLayout_3_SM->addWidget(statusLabel_SM);
@@ -207,6 +228,7 @@ public:
         horizontalLayout_1_VM->setObjectName(QString::fromUtf8("horizontalLayout_1_VM"));
         addressIn_VM = new QValidatedLineEdit(tabVerifyMessage);
         addressIn_VM->setObjectName(QString::fromUtf8("addressIn_VM"));
+        addressIn_VM->setStyleSheet(QString::fromUtf8("color:white; border-bottom-color:rgba(37, 170, 225, 255); border-bottom-style:solid; border-bottom-width:1px;"));
         addressIn_VM->setMaxLength(34);
 
         horizontalLayout_1_VM->addWidget(addressIn_VM);
@@ -223,11 +245,13 @@ public:
 
         messageIn_VM = new QPlainTextEdit(tabVerifyMessage);
         messageIn_VM->setObjectName(QString::fromUtf8("messageIn_VM"));
+        messageIn_VM->setStyleSheet(QString::fromUtf8("color:white; border-color:rgba(37, 170, 225, 255); border-style:solid; border-width:1px;"));
 
         verticalLayout_VM->addWidget(messageIn_VM);
 
         signatureIn_VM = new QValidatedLineEdit(tabVerifyMessage);
         signatureIn_VM->setObjectName(QString::fromUtf8("signatureIn_VM"));
+        signatureIn_VM->setStyleSheet(QString::fromUtf8("color:white; border-bottom-color:rgba(37, 170, 225, 255); border-bottom-style:solid; border-bottom-width:1px;"));
 
         verticalLayout_VM->addWidget(signatureIn_VM);
 
@@ -235,6 +259,7 @@ public:
         horizontalLayout_2_VM->setObjectName(QString::fromUtf8("horizontalLayout_2_VM"));
         verifyMessageButton_VM = new QPushButton(tabVerifyMessage);
         verifyMessageButton_VM->setObjectName(QString::fromUtf8("verifyMessageButton_VM"));
+        verifyMessageButton_VM->setStyleSheet(QString::fromUtf8("color:white;"));
         QIcon icon5;
         icon5.addFile(QString::fromUtf8(":/icons/transaction_0"), QSize(), QIcon::Normal, QIcon::Off);
         verifyMessageButton_VM->setIcon(icon5);
@@ -242,8 +267,13 @@ public:
 
         horizontalLayout_2_VM->addWidget(verifyMessageButton_VM);
 
+        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_2_VM->addItem(horizontalSpacer_2);
+
         clearButton_VM = new QPushButton(tabVerifyMessage);
         clearButton_VM->setObjectName(QString::fromUtf8("clearButton_VM"));
+        clearButton_VM->setStyleSheet(QString::fromUtf8("color:white;"));
         clearButton_VM->setIcon(icon4);
         clearButton_VM->setAutoDefault(false);
 
@@ -255,7 +285,7 @@ public:
 
         statusLabel_VM = new QLabel(tabVerifyMessage);
         statusLabel_VM->setObjectName(QString::fromUtf8("statusLabel_VM"));
-        statusLabel_VM->setFont(font1);
+        statusLabel_VM->setFont(font2);
         statusLabel_VM->setWordWrap(true);
 
         horizontalLayout_2_VM->addWidget(statusLabel_VM);

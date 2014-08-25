@@ -72,17 +72,18 @@ public:
     QLineEdit *lineEditCoinControlChange;
     QLabel *labelCoinControlChangeLabel;
     QSpacerItem *verticalSpacerCoinControl;
+    QSpacerItem *verticalSpacer_2;
+    QLabel *labelBalance;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *entries;
+    QPushButton *addButton;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
-    QPushButton *addButton;
-    QPushButton *clearButton;
     QHBoxLayout *horizontalLayout_2;
+    QPushButton *clearButton;
     QLabel *label;
-    QLabel *labelBalance;
     QSpacerItem *horizontalSpacer;
     QPushButton *sendButton;
 
@@ -92,10 +93,12 @@ public:
             SendCoinsDialog->setObjectName(QString::fromUtf8("SendCoinsDialog"));
         SendCoinsDialog->resize(850, 400);
         SendCoinsDialog->setAutoFillBackground(false);
-        SendCoinsDialog->setStyleSheet(QString::fromUtf8("background-color: rgb(27, 40, 54);\n"
-"border-color:rgba(0, 0, 0, 0);\n"
-"border-width:1px;\n"
-"border-style:solid;"));
+        SendCoinsDialog->setStyleSheet(QString::fromUtf8("#SendCoinsDialog { \n"
+"background-image: url(:/images/base_back);\n"
+"border-color:rgba(1, 1, 1, 0);\n"
+"border-width:0px;\n"
+"border-style:solid;}\n"
+""));
         SendCoinsDialog->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayout = new QVBoxLayout(SendCoinsDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -400,12 +403,40 @@ public:
 
         verticalLayout->addWidget(frameCoinControl);
 
+        verticalSpacer_2 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(verticalSpacer_2);
+
+        labelBalance = new QLabel(SendCoinsDialog);
+        labelBalance->setObjectName(QString::fromUtf8("labelBalance"));
+        QSizePolicy sizePolicy5(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(labelBalance->sizePolicy().hasHeightForWidth());
+        labelBalance->setSizePolicy(sizePolicy5);
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Khmer OS System"));
+        font2.setPointSize(16);
+        labelBalance->setFont(font2);
+        labelBalance->setCursor(QCursor(Qt::IBeamCursor));
+        labelBalance->setStyleSheet(QString::fromUtf8("#labelBalance { color: white; border-bottom-color:rgb(37, 170, 225); border-bottom-width:1px;border-bottom-style:solid; white; border-top-color:rgb(37, 170, 225); border-top-width:1px;border-top-style:solid;}"));
+        labelBalance->setTextFormat(Qt::AutoText);
+        labelBalance->setAlignment(Qt::AlignCenter);
+        labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
+
+        verticalLayout->addWidget(labelBalance);
+
         scrollArea = new QScrollArea(SendCoinsDialog);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
+"border-color:rgba(255, 255, 255, 0);\n"
+"border-width:1px;\n"
+"border-style:solid;\n"
+""));
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 830, 152));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 830, 85));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -414,6 +445,17 @@ public:
         entries->setObjectName(QString::fromUtf8("entries"));
 
         verticalLayout_2->addLayout(entries);
+
+        addButton = new QPushButton(scrollAreaWidgetContents);
+        addButton->setObjectName(QString::fromUtf8("addButton"));
+        addButton->setStyleSheet(QString::fromUtf8("color:white;"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icons/add"), QSize(), QIcon::Normal, QIcon::Off);
+        addButton->setIcon(icon);
+        addButton->setAutoDefault(false);
+        addButton->setFlat(true);
+
+        verticalLayout_2->addWidget(addButton);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -425,56 +467,39 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        addButton = new QPushButton(SendCoinsDialog);
-        addButton->setObjectName(QString::fromUtf8("addButton"));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/icons/add"), QSize(), QIcon::Normal, QIcon::Off);
-        addButton->setIcon(icon);
-        addButton->setAutoDefault(false);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(3);
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
 
-        horizontalLayout->addWidget(addButton);
+        horizontalLayout->addLayout(horizontalLayout_2);
 
         clearButton = new QPushButton(SendCoinsDialog);
         clearButton->setObjectName(QString::fromUtf8("clearButton"));
-        QSizePolicy sizePolicy5(QSizePolicy::Minimum, QSizePolicy::Fixed);
-        sizePolicy5.setHorizontalStretch(0);
-        sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(clearButton->sizePolicy().hasHeightForWidth());
-        clearButton->setSizePolicy(sizePolicy5);
+        QSizePolicy sizePolicy6(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy6.setHorizontalStretch(0);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(clearButton->sizePolicy().hasHeightForWidth());
+        clearButton->setSizePolicy(sizePolicy6);
+        clearButton->setStyleSheet(QString::fromUtf8("color:white;"));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
         clearButton->setIcon(icon1);
         clearButton->setAutoRepeatDelay(300);
         clearButton->setAutoDefault(false);
+        clearButton->setFlat(true);
 
         horizontalLayout->addWidget(clearButton);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(3);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label = new QLabel(SendCoinsDialog);
         label->setObjectName(QString::fromUtf8("label"));
-        QSizePolicy sizePolicy6(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy6);
+        sizePolicy5.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
+        label->setSizePolicy(sizePolicy5);
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("Khmer OS System"));
+        label->setFont(font3);
         label->setStyleSheet(QString::fromUtf8("#label { color: #ededed; }"));
 
-        horizontalLayout_2->addWidget(label);
-
-        labelBalance = new QLabel(SendCoinsDialog);
-        labelBalance->setObjectName(QString::fromUtf8("labelBalance"));
-        sizePolicy6.setHeightForWidth(labelBalance->sizePolicy().hasHeightForWidth());
-        labelBalance->setSizePolicy(sizePolicy6);
-        labelBalance->setCursor(QCursor(Qt::IBeamCursor));
-        labelBalance->setStyleSheet(QString::fromUtf8("#labelBalance { color: #ededed; }"));
-        labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
-
-        horizontalLayout_2->addWidget(labelBalance);
-
-
-        horizontalLayout->addLayout(horizontalLayout_2);
+        horizontalLayout->addWidget(label);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -483,17 +508,19 @@ public:
         sendButton = new QPushButton(SendCoinsDialog);
         sendButton->setObjectName(QString::fromUtf8("sendButton"));
         sendButton->setMinimumSize(QSize(150, 0));
+        sendButton->setStyleSheet(QString::fromUtf8("color:white;"));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/icons/send"), QSize(), QIcon::Normal, QIcon::Off);
         sendButton->setIcon(icon2);
         sendButton->setDefault(true);
+        sendButton->setFlat(true);
 
         horizontalLayout->addWidget(sendButton);
 
 
         verticalLayout->addLayout(horizontalLayout);
 
-        verticalLayout->setStretch(1, 1);
+        verticalLayout->setStretch(3, 1);
 
         retranslateUi(SendCoinsDialog);
 
@@ -525,6 +552,7 @@ public:
         labelCoinControlChange->setText(QApplication::translate("SendCoinsDialog", "0.00 MACD", 0, QApplication::UnicodeUTF8));
         checkBoxCoinControlChange->setText(QApplication::translate("SendCoinsDialog", "custom change address", 0, QApplication::UnicodeUTF8));
         labelCoinControlChangeLabel->setText(QString());
+        labelBalance->setText(QApplication::translate("SendCoinsDialog", "123.456 MACD", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         addButton->setToolTip(QApplication::translate("SendCoinsDialog", "Send to multiple recipients at once", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
@@ -533,8 +561,7 @@ public:
         clearButton->setToolTip(QApplication::translate("SendCoinsDialog", "Remove all transaction fields", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
         clearButton->setText(QApplication::translate("SendCoinsDialog", "Clear &All", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("SendCoinsDialog", "Balance:", 0, QApplication::UnicodeUTF8));
-        labelBalance->setText(QApplication::translate("SendCoinsDialog", "123.456 MACD", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("SendCoinsDialog", "Balance", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         sendButton->setToolTip(QApplication::translate("SendCoinsDialog", "Confirm the send action", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP

@@ -49,9 +49,9 @@ public:
     {
         if (SendCoinsEntry->objectName().isEmpty())
             SendCoinsEntry->setObjectName(QString::fromUtf8("SendCoinsEntry"));
-        SendCoinsEntry->resize(729, 137);
+        SendCoinsEntry->resize(729, 143);
         SendCoinsEntry->setAutoFillBackground(false);
-        SendCoinsEntry->setStyleSheet(QString::fromUtf8("background-color: rgb(27, 40, 54);\n"
+        SendCoinsEntry->setStyleSheet(QString::fromUtf8("background-color: rgba(27, 40, 54, 0);\n"
 "border-color:rgba(0, 0, 0, 0);\n"
 "border-width:1px;\n"
 "border-style:solid;"));

@@ -46,6 +46,7 @@
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/splash.png</file>
         <file alias="backg">res/images/background.png</file>
+        <file alias="base_back">res/images/wallet_background_base.png</file>
         <file alias="toolback">res/images/toolback.png</file>
     </qresource>
     <qresource prefix="/movies">
