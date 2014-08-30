@@ -74,16 +74,17 @@ public:
     QSpacerItem *verticalSpacerCoinControl;
     QSpacerItem *verticalSpacer_2;
     QLabel *labelBalance;
+    QSpacerItem *verticalSpacer_3;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *entries;
+    QSpacerItem *verticalSpacer_4;
     QPushButton *addButton;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *clearButton;
-    QLabel *label;
     QSpacerItem *horizontalSpacer;
     QPushButton *sendButton;
 
@@ -403,7 +404,7 @@ public:
 
         verticalLayout->addWidget(frameCoinControl);
 
-        verticalSpacer_2 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_2 = new QSpacerItem(20, 5, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout->addItem(verticalSpacer_2);
 
@@ -415,16 +416,20 @@ public:
         sizePolicy5.setHeightForWidth(labelBalance->sizePolicy().hasHeightForWidth());
         labelBalance->setSizePolicy(sizePolicy5);
         QFont font2;
-        font2.setFamily(QString::fromUtf8("Khmer OS System"));
+        font2.setFamily(QString::fromUtf8("Khmer OS"));
         font2.setPointSize(16);
         labelBalance->setFont(font2);
         labelBalance->setCursor(QCursor(Qt::IBeamCursor));
-        labelBalance->setStyleSheet(QString::fromUtf8("#labelBalance { color: white; border-bottom-color:rgb(37, 170, 225); border-bottom-width:1px;border-bottom-style:solid; white; border-top-color:rgb(37, 170, 225); border-top-width:1px;border-top-style:solid;}"));
+        labelBalance->setStyleSheet(QString::fromUtf8("#labelBalance { color: white; border-bottom-color:rgb(37, 170, 225); border-bottom-width:1px;border-bottom-style:solid; white; border-top-color:rgb(37, 170, 225); border-top-width:1px;border-top-style:soli}"));
         labelBalance->setTextFormat(Qt::AutoText);
         labelBalance->setAlignment(Qt::AlignCenter);
         labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         verticalLayout->addWidget(labelBalance);
+
+        verticalSpacer_3 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(verticalSpacer_3);
 
         scrollArea = new QScrollArea(SendCoinsDialog);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
@@ -436,7 +441,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 830, 85));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 830, 74));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -446,9 +451,15 @@ public:
 
         verticalLayout_2->addLayout(entries);
 
+        verticalSpacer_4 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_2->addItem(verticalSpacer_4);
+
         addButton = new QPushButton(scrollAreaWidgetContents);
         addButton->setObjectName(QString::fromUtf8("addButton"));
-        addButton->setStyleSheet(QString::fromUtf8("color:white;"));
+        addButton->setMinimumSize(QSize(0, 40));
+        addButton->setStyleSheet(QString::fromUtf8("color:white;\n"
+"border-top-color:rgb(37, 170, 225); border-top-width:1px;border-top-style:solid;"));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icons/add"), QSize(), QIcon::Normal, QIcon::Off);
         addButton->setIcon(icon);
@@ -490,17 +501,6 @@ public:
 
         horizontalLayout->addWidget(clearButton);
 
-        label = new QLabel(SendCoinsDialog);
-        label->setObjectName(QString::fromUtf8("label"));
-        sizePolicy5.setHeightForWidth(label->sizePolicy().hasHeightForWidth());
-        label->setSizePolicy(sizePolicy5);
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("Khmer OS System"));
-        label->setFont(font3);
-        label->setStyleSheet(QString::fromUtf8("#label { color: #ededed; }"));
-
-        horizontalLayout->addWidget(label);
-
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
@@ -520,7 +520,7 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        verticalLayout->setStretch(3, 1);
+        verticalLayout->setStretch(4, 1);
 
         retranslateUi(SendCoinsDialog);
 
@@ -556,16 +556,15 @@ public:
 #ifndef QT_NO_TOOLTIP
         addButton->setToolTip(QApplication::translate("SendCoinsDialog", "Send to multiple recipients at once", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        addButton->setText(QApplication::translate("SendCoinsDialog", "Add &Recipient", 0, QApplication::UnicodeUTF8));
+        addButton->setText(QApplication::translate("SendCoinsDialog", "ADD", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         clearButton->setToolTip(QApplication::translate("SendCoinsDialog", "Remove all transaction fields", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        clearButton->setText(QApplication::translate("SendCoinsDialog", "Clear &All", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("SendCoinsDialog", "Balance", 0, QApplication::UnicodeUTF8));
+        clearButton->setText(QApplication::translate("SendCoinsDialog", "CLEAR", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         sendButton->setToolTip(QApplication::translate("SendCoinsDialog", "Confirm the send action", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        sendButton->setText(QApplication::translate("SendCoinsDialog", "S&end", 0, QApplication::UnicodeUTF8));
+        sendButton->setText(QApplication::translate("SendCoinsDialog", "SEND", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

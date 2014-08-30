@@ -47,7 +47,7 @@
         <file alias="splash">res/images/splash.png</file>
         <file alias="backg">res/images/background.png</file>
         <file alias="base_back">res/images/wallet_background_base.png</file>
-        <file alias="toolback">res/images/toolback.png</file>
+        <file alias="toolback">res/images/toolbar_background.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/update_spinner.mng</file>

@@ -95,6 +95,8 @@ private:
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
 
+    QWidget *iconLabel;
+
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
     TransactionView *transactionView;

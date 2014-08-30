@@ -30,6 +30,7 @@ class Ui_AddressBookPage
 {
 public:
     QVBoxLayout *verticalLayout;
+    QSpacerItem *verticalSpacer;
     QLabel *labelExplanation;
     QTableView *tableView;
     QHBoxLayout *horizontalLayout;
@@ -53,6 +54,10 @@ public:
         AddressBookPage->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayout = new QVBoxLayout(AddressBookPage);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalSpacer = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(verticalSpacer);
+
         labelExplanation = new QLabel(AddressBookPage);
         labelExplanation->setObjectName(QString::fromUtf8("labelExplanation"));
         QFont font;
@@ -68,6 +73,34 @@ public:
 
         tableView = new QTableView(AddressBookPage);
         tableView->setObjectName(QString::fromUtf8("tableView"));
+        QPalette palette;
+        QBrush brush(QColor(1, 1, 1, 0));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush);
+        QBrush brush1(QColor(0, 0, 0, 255));
+        brush1.setStyle(Qt::NoBrush);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush);
+        QBrush brush2(QColor(37, 170, 225, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Highlight, brush2);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        QBrush brush3(QColor(0, 0, 0, 255));
+        brush3.setStyle(Qt::NoBrush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush3);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush);
+        QBrush brush4(QColor(229, 227, 225, 255));
+        brush4.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Inactive, QPalette::Highlight, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        QBrush brush5(QColor(0, 0, 0, 255));
+        brush5.setStyle(Qt::NoBrush);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush5);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush);
+        QBrush brush6(QColor(240, 240, 240, 255));
+        brush6.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::Highlight, brush6);
+        tableView->setPalette(palette);
         tableView->setContextMenuPolicy(Qt::CustomContextMenu);
         tableView->setStyleSheet(QString::fromUtf8("#tableView{\n"
 "gridline-color: rgba(1, 1, 1, 0);\n"

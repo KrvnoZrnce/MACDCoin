@@ -95,6 +95,31 @@ public:
         addAsLabel = new QValidatedLineEdit(SendCoinsEntry);
         addAsLabel->setObjectName(QString::fromUtf8("addAsLabel"));
         addAsLabel->setEnabled(true);
+        QPalette palette;
+        QBrush brush(QColor(37, 170, 225, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        QBrush brush1(QColor(27, 40, 54, 0));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush1);
+        QBrush brush2(QColor(255, 255, 255, 255));
+        brush2.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush2);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        QBrush brush3(QColor(159, 158, 158, 255));
+        brush3.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush3);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush3);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        addAsLabel->setPalette(palette);
         addAsLabel->setStyleSheet(QString::fromUtf8("border-width:1px;\n"
 "border-style:solid;\n"
 "border-color:rgba(37, 170, 225, 255);"));
@@ -117,6 +142,26 @@ public:
         payToLayout->setObjectName(QString::fromUtf8("payToLayout"));
         payTo = new QValidatedLineEdit(SendCoinsEntry);
         payTo->setObjectName(QString::fromUtf8("payTo"));
+        QPalette palette1;
+        palette1.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        palette1.setBrush(QPalette::Active, QPalette::Button, brush1);
+        palette1.setBrush(QPalette::Active, QPalette::Text, brush2);
+        palette1.setBrush(QPalette::Active, QPalette::ButtonText, brush2);
+        palette1.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette1.setBrush(QPalette::Active, QPalette::Window, brush1);
+        palette1.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette1.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette1.setBrush(QPalette::Inactive, QPalette::ButtonText, brush2);
+        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        palette1.setBrush(QPalette::Disabled, QPalette::WindowText, brush2);
+        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush1);
+        palette1.setBrush(QPalette::Disabled, QPalette::Text, brush2);
+        palette1.setBrush(QPalette::Disabled, QPalette::ButtonText, brush2);
+        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush1);
+        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush1);
+        payTo->setPalette(palette1);
         payTo->setStyleSheet(QString::fromUtf8("color:white;\n"
 "border-width:1px;\n"
 "border-style:solid;\n"

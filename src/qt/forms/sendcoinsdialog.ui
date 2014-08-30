@@ -27,7 +27,7 @@ border-style:solid;}
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,1,0">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,0,1,0">
    <property name="bottomMargin">
     <number>8</number>
    </property>
@@ -649,7 +649,7 @@ border-style:solid;}
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>15</height>
+       <height>5</height>
       </size>
      </property>
     </spacer>
@@ -664,7 +664,7 @@ border-style:solid;}
      </property>
      <property name="font">
       <font>
-       <family>Khmer OS System</family>
+       <family>Khmer OS</family>
        <pointsize>16</pointsize>
       </font>
      </property>
@@ -672,7 +672,7 @@ border-style:solid;}
       <cursorShape>IBeamCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">#labelBalance { color: white; border-bottom-color:rgb(37, 170, 225); border-bottom-width:1px;border-bottom-style:solid; white; border-top-color:rgb(37, 170, 225); border-top-width:1px;border-top-style:solid;}</string>
+      <string notr="true">#labelBalance { color: white; border-bottom-color:rgb(37, 170, 225); border-bottom-width:1px;border-bottom-style:solid; white; border-top-color:rgb(37, 170, 225); border-top-width:1px;border-top-style:soli}</string>
      </property>
      <property name="text">
       <string>123.456 MACD</string>
@@ -687,6 +687,22 @@ border-style:solid;}
       <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
      </property>
     </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QScrollArea" name="scrollArea">
@@ -706,7 +722,7 @@ border-style:solid;
         <x>0</x>
         <y>0</y>
         <width>830</width>
-        <height>85</height>
+        <height>74</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -730,15 +746,38 @@ border-style:solid;
         </layout>
        </item>
        <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
         <widget class="QPushButton" name="addButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
          <property name="toolTip">
           <string>Send to multiple recipients at once</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">color:white;</string>
+          <string notr="true">color:white;
+border-top-color:rgb(37, 170, 225); border-top-width:1px;border-top-style:solid;</string>
          </property>
          <property name="text">
-          <string>Add &amp;Recipient</string>
+          <string>ADD</string>
          </property>
          <property name="icon">
           <iconset resource="../bitcoin.qrc">
@@ -793,7 +832,7 @@ border-style:solid;
         <string notr="true">color:white;</string>
        </property>
        <property name="text">
-        <string>Clear &amp;All</string>
+        <string>CLEAR</string>
        </property>
        <property name="icon">
         <iconset resource="../bitcoin.qrc">
@@ -838,7 +877,7 @@ border-style:solid;
         <string notr="true">color:white;</string>
        </property>
        <property name="text">
-        <string>S&amp;end</string>
+        <string>SEND</string>
        </property>
        <property name="icon">
         <iconset resource="../bitcoin.qrc">

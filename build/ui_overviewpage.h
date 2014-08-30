@@ -47,10 +47,31 @@ public:
     QLabel *labelUnconfirmed;
     QLabel *labelImmatureText;
     QLabel *labelImmature;
+    QFrame *line;
+    QFrame *verticalFrame;
+    QVBoxLayout *verticalLayout_5;
+    QLabel *label_10;
+    QSpacerItem *verticalSpacer_3;
+    QFormLayout *formLayout_3;
+    QLabel *label_11;
+    QLabel *label_12;
+    QLabel *label_13;
+    QLabel *label_14;
+    QLabel *label_15;
+    QLabel *label_16;
     QSpacerItem *verticalSpacer;
+    QFrame *horizontalFrame;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *label_7;
     QLabel *labelInfo;
+    QFrame *horizontalFrame3;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_8;
+    QLabel *label_9;
     QSpacerItem *horizontalSpacer_3;
+    QVBoxLayout *verticalLayout_6;
+    QFrame *line_2;
+    QSpacerItem *horizontalSpacer_4;
     QVBoxLayout *verticalLayout_3;
     QFrame *frame_2;
     QVBoxLayout *verticalLayout;
@@ -59,6 +80,8 @@ public:
     QSpacerItem *horizontalSpacer;
     QLabel *labelTransactionsStatus;
     QListView *listTransactions;
+    QFrame *horizontalFrame2;
+    QHBoxLayout *horizontalLayout_5;
     QLabel *label_2;
     QLabel *labelNumTransactions;
 
@@ -70,7 +93,8 @@ public:
         OverviewPage->setMinimumSize(QSize(820, 600));
         OverviewPage->setMaximumSize(QSize(820, 600));
         OverviewPage->setAutoFillBackground(false);
-        OverviewPage->setStyleSheet(QString::fromUtf8("#OverviewPage { color: #rgb(78, 187, 57);background-image: url(:/images/backg); ;}\n"
+        OverviewPage->setStyleSheet(QString::fromUtf8("#OverviewPage { color: #rgb(78, 187, 57);\n"
+"background-image: url(:/images/base_back);}\n"
 ""));
         OverviewPage->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         horizontalLayout = new QHBoxLayout(OverviewPage);
@@ -113,7 +137,7 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_4);
 
-        verticalSpacer_2 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_2 = new QSpacerItem(20, 7, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout_4->addItem(verticalSpacer_2);
 
@@ -142,6 +166,8 @@ public:
         labelBalance->setCursor(QCursor(Qt::IBeamCursor));
         labelBalance->setStyleSheet(QString::fromUtf8("color: #ededed;"));
         labelBalance->setText(QString::fromUtf8("0 MACD"));
+        labelBalance->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        labelBalance->setIndent(10);
         labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, labelBalance);
@@ -160,6 +186,8 @@ public:
         labelStake->setCursor(QCursor(Qt::IBeamCursor));
         labelStake->setStyleSheet(QString::fromUtf8("color: #ededed;"));
         labelStake->setText(QString::fromUtf8("0 MACD"));
+        labelStake->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        labelStake->setIndent(10);
         labelStake->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(1, QFormLayout::FieldRole, labelStake);
@@ -178,6 +206,8 @@ public:
         labelUnconfirmed->setCursor(QCursor(Qt::IBeamCursor));
         labelUnconfirmed->setStyleSheet(QString::fromUtf8("color: #ededed;"));
         labelUnconfirmed->setText(QString::fromUtf8("0 MACD"));
+        labelUnconfirmed->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        labelUnconfirmed->setIndent(10);
         labelUnconfirmed->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(2, QFormLayout::FieldRole, labelUnconfirmed);
@@ -195,6 +225,8 @@ public:
         labelImmature->setFont(font2);
         labelImmature->setStyleSheet(QString::fromUtf8("color: #ededed;"));
         labelImmature->setText(QString::fromUtf8("0 MACD"));
+        labelImmature->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        labelImmature->setIndent(10);
         labelImmature->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(3, QFormLayout::FieldRole, labelImmature);
@@ -205,33 +237,190 @@ public:
 
         verticalLayout_2->addWidget(frame);
 
+        line = new QFrame(OverviewPage);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setMaximumSize(QSize(16777215, 1));
+        line->setStyleSheet(QString::fromUtf8("background-color:rgb(37, 170, 225);"));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_2->addWidget(line);
+
+        verticalFrame = new QFrame(OverviewPage);
+        verticalFrame->setObjectName(QString::fromUtf8("verticalFrame"));
+        verticalFrame->setMinimumSize(QSize(0, 180));
+        verticalLayout_5 = new QVBoxLayout(verticalFrame);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_5->setContentsMargins(9, 9, 9, 9);
+        label_10 = new QLabel(verticalFrame);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+        label_10->setMaximumSize(QSize(16777215, 35));
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("Khmer OS System"));
+        label_10->setFont(font3);
+        label_10->setStyleSheet(QString::fromUtf8("color:white"));
+
+        verticalLayout_5->addWidget(label_10);
+
+        verticalSpacer_3 = new QSpacerItem(20, 7, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_5->addItem(verticalSpacer_3);
+
+        formLayout_3 = new QFormLayout();
+        formLayout_3->setObjectName(QString::fromUtf8("formLayout_3"));
+        formLayout_3->setHorizontalSpacing(12);
+        formLayout_3->setVerticalSpacing(12);
+        formLayout_3->setContentsMargins(-1, -1, -1, 9);
+        label_11 = new QLabel(verticalFrame);
+        label_11->setObjectName(QString::fromUtf8("label_11"));
+        label_11->setFont(font3);
+        label_11->setStyleSheet(QString::fromUtf8("color:white;"));
+        label_11->setIndent(10);
+
+        formLayout_3->setWidget(0, QFormLayout::LabelRole, label_11);
+
+        label_12 = new QLabel(verticalFrame);
+        label_12->setObjectName(QString::fromUtf8("label_12"));
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("Khmer OS System"));
+        font4.setBold(true);
+        font4.setWeight(75);
+        label_12->setFont(font4);
+        label_12->setStyleSheet(QString::fromUtf8("color:white;"));
+        label_12->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_12->setIndent(10);
+
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, label_12);
+
+        label_13 = new QLabel(verticalFrame);
+        label_13->setObjectName(QString::fromUtf8("label_13"));
+        label_13->setFont(font3);
+        label_13->setStyleSheet(QString::fromUtf8("color:white;"));
+        label_13->setIndent(10);
+
+        formLayout_3->setWidget(1, QFormLayout::LabelRole, label_13);
+
+        label_14 = new QLabel(verticalFrame);
+        label_14->setObjectName(QString::fromUtf8("label_14"));
+        label_14->setFont(font4);
+        label_14->setStyleSheet(QString::fromUtf8("color:white;"));
+        label_14->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_14->setIndent(10);
+
+        formLayout_3->setWidget(1, QFormLayout::FieldRole, label_14);
+
+        label_15 = new QLabel(verticalFrame);
+        label_15->setObjectName(QString::fromUtf8("label_15"));
+        label_15->setFont(font3);
+        label_15->setStyleSheet(QString::fromUtf8("color:white;"));
+        label_15->setIndent(10);
+
+        formLayout_3->setWidget(2, QFormLayout::LabelRole, label_15);
+
+        label_16 = new QLabel(verticalFrame);
+        label_16->setObjectName(QString::fromUtf8("label_16"));
+        label_16->setFont(font4);
+        label_16->setStyleSheet(QString::fromUtf8("color:white;"));
+        label_16->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_16->setIndent(10);
+
+        formLayout_3->setWidget(2, QFormLayout::FieldRole, label_16);
+
+
+        verticalLayout_5->addLayout(formLayout_3);
+
+
+        verticalLayout_2->addWidget(verticalFrame);
+
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_2->addItem(verticalSpacer);
 
-        label_7 = new QLabel(OverviewPage);
+        horizontalFrame = new QFrame(OverviewPage);
+        horizontalFrame->setObjectName(QString::fromUtf8("horizontalFrame"));
+        horizontalFrame->setMinimumSize(QSize(0, 50));
+        horizontalFrame->setStyleSheet(QString::fromUtf8(""));
+        horizontalLayout_3 = new QHBoxLayout(horizontalFrame);
+        horizontalLayout_3->setSpacing(0);
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
+        label_7 = new QLabel(horizontalFrame);
         label_7->setObjectName(QString::fromUtf8("label_7"));
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("Khmer OS"));
-        font3.setPointSize(10);
-        label_7->setFont(font3);
+        QFont font5;
+        font5.setFamily(QString::fromUtf8("Khmer OS System"));
+        font5.setPointSize(11);
+        label_7->setFont(font5);
         label_7->setStyleSheet(QString::fromUtf8("color:white"));
+        label_7->setIndent(10);
 
-        verticalLayout_2->addWidget(label_7);
+        horizontalLayout_3->addWidget(label_7);
 
-        labelInfo = new QLabel(OverviewPage);
+        labelInfo = new QLabel(horizontalFrame);
         labelInfo->setObjectName(QString::fromUtf8("labelInfo"));
-        labelInfo->setFont(font3);
+        labelInfo->setFont(font5);
         labelInfo->setStyleSheet(QString::fromUtf8("color:white"));
+        labelInfo->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        labelInfo->setIndent(10);
 
-        verticalLayout_2->addWidget(labelInfo);
+        horizontalLayout_3->addWidget(labelInfo);
+
+
+        verticalLayout_2->addWidget(horizontalFrame);
+
+        horizontalFrame3 = new QFrame(OverviewPage);
+        horizontalFrame3->setObjectName(QString::fromUtf8("horizontalFrame3"));
+        horizontalFrame3->setMinimumSize(QSize(0, 50));
+        horizontalFrame3->setStyleSheet(QString::fromUtf8("#horizontalFrame3{border-top-color:rgb(37, 170, 225);\n"
+"border-top-width:1px;\n"
+"border-style:solid;}"));
+        horizontalLayout_6 = new QHBoxLayout(horizontalFrame3);
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        label_8 = new QLabel(horizontalFrame3);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setFont(font3);
+        label_8->setStyleSheet(QString::fromUtf8("color:white;"));
+        label_8->setIndent(0);
+
+        horizontalLayout_6->addWidget(label_8);
+
+        label_9 = new QLabel(horizontalFrame3);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setFont(font3);
+        label_9->setStyleSheet(QString::fromUtf8("color:white;"));
+        label_9->setTextFormat(Qt::AutoText);
+        label_9->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_9->setIndent(0);
+
+        horizontalLayout_6->addWidget(label_9);
+
+
+        verticalLayout_2->addWidget(horizontalFrame3);
 
 
         horizontalLayout->addLayout(verticalLayout_2);
 
-        horizontalSpacer_3 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        horizontalSpacer_3 = new QSpacerItem(5, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer_3);
+
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        verticalLayout_6->setContentsMargins(9, 9, 9, 9);
+        line_2 = new QFrame(OverviewPage);
+        line_2->setObjectName(QString::fromUtf8("line_2"));
+        line_2->setMaximumSize(QSize(1, 16777215));
+        line_2->setStyleSheet(QString::fromUtf8("background-color:rgb(37, 170, 225);"));
+        line_2->setFrameShape(QFrame::VLine);
+        line_2->setFrameShadow(QFrame::Sunken);
+
+        verticalLayout_6->addWidget(line_2);
+
+
+        horizontalLayout->addLayout(verticalLayout_6);
+
+        horizontalSpacer_4 = new QSpacerItem(5, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_4);
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
@@ -246,10 +435,10 @@ public:
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_4 = new QLabel(frame_2);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        QFont font4;
-        font4.setFamily(QString::fromUtf8("Khmer OS"));
-        font4.setPointSize(13);
-        label_4->setFont(font4);
+        QFont font6;
+        font6.setFamily(QString::fromUtf8("Khmer OS"));
+        font6.setPointSize(13);
+        label_4->setFont(font6);
         label_4->setStyleSheet(QString::fromUtf8("color: #ededed;"));
 
         horizontalLayout_2->addWidget(label_4);
@@ -279,28 +468,40 @@ public:
 
         verticalLayout->addWidget(listTransactions);
 
-        label_2 = new QLabel(frame_2);
+
+        verticalLayout_3->addWidget(frame_2);
+
+        horizontalFrame2 = new QFrame(OverviewPage);
+        horizontalFrame2->setObjectName(QString::fromUtf8("horizontalFrame2"));
+        horizontalFrame2->setMinimumSize(QSize(0, 50));
+        horizontalFrame2->setStyleSheet(QString::fromUtf8("#horizontalFrame2{border-top-color:rgb(37, 170, 225);\n"
+"border-top-width:1px;\n"
+"border-style:solid;}"));
+        horizontalLayout_5 = new QHBoxLayout(horizontalFrame2);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        label_2 = new QLabel(horizontalFrame2);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setFont(font1);
+        label_2->setFont(font3);
         label_2->setStyleSheet(QString::fromUtf8("color: #ededed;"));
-        label_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_2->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
-        verticalLayout->addWidget(label_2);
+        horizontalLayout_5->addWidget(label_2);
 
-        labelNumTransactions = new QLabel(frame_2);
+        labelNumTransactions = new QLabel(horizontalFrame2);
         labelNumTransactions->setObjectName(QString::fromUtf8("labelNumTransactions"));
-        QFont font5;
-        font5.setBold(true);
-        font5.setWeight(75);
-        labelNumTransactions->setFont(font5);
+        QFont font7;
+        font7.setFamily(QString::fromUtf8("Khmer OS System"));
+        font7.setBold(false);
+        font7.setWeight(50);
+        labelNumTransactions->setFont(font7);
         labelNumTransactions->setStyleSheet(QString::fromUtf8("color: #ededed;"));
         labelNumTransactions->setText(QString::fromUtf8("0"));
         labelNumTransactions->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        verticalLayout->addWidget(labelNumTransactions);
+        horizontalLayout_5->addWidget(labelNumTransactions);
 
 
-        verticalLayout_3->addWidget(frame_2);
+        verticalLayout_3->addWidget(horizontalFrame2);
 
 
         horizontalLayout->addLayout(verticalLayout_3);
@@ -318,29 +519,38 @@ public:
 #ifndef QT_NO_TOOLTIP
         labelWalletStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the MACDCoin network after a connection is established, but this process has not completed yet.", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        label->setText(QApplication::translate("OverviewPage", "Balance:", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("OverviewPage", "Balance", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         labelBalance->setToolTip(QApplication::translate("OverviewPage", "Your current balance", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        label_6->setText(QApplication::translate("OverviewPage", "Stake:", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("OverviewPage", "Stake", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         labelStake->setToolTip(QApplication::translate("OverviewPage", "Total of coins that was staked, and do not yet count toward the current balance", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        label_3->setText(QApplication::translate("OverviewPage", "Unconfirmed:", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("OverviewPage", "Unconfirmed", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         labelUnconfirmed->setToolTip(QApplication::translate("OverviewPage", "Total of transactions that have yet to be confirmed, and do not yet count toward the current balance", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        labelImmatureText->setText(QApplication::translate("OverviewPage", "Immature:", 0, QApplication::UnicodeUTF8));
+        labelImmatureText->setText(QApplication::translate("OverviewPage", "Immature", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         labelImmature->setToolTip(QApplication::translate("OverviewPage", "Mined balance that has not yet matured", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        label_7->setText(QApplication::translate("OverviewPage", "Current price on Bittrex:", 0, QApplication::UnicodeUTF8));
+        label_10->setText(QApplication::translate("OverviewPage", "WEALTH", 0, QApplication::UnicodeUTF8));
+        label_11->setText(QApplication::translate("OverviewPage", "in BTC", 0, QApplication::UnicodeUTF8));
+        label_12->setText(QApplication::translate("OverviewPage", "0 BTC", 0, QApplication::UnicodeUTF8));
+        label_13->setText(QApplication::translate("OverviewPage", "in USD", 0, QApplication::UnicodeUTF8));
+        label_14->setText(QApplication::translate("OverviewPage", "0 USD", 0, QApplication::UnicodeUTF8));
+        label_15->setText(QApplication::translate("OverviewPage", "in EUR", 0, QApplication::UnicodeUTF8));
+        label_16->setText(QApplication::translate("OverviewPage", "0 EUR", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("OverviewPage", "PRICE", 0, QApplication::UnicodeUTF8));
         labelInfo->setText(QApplication::translate("OverviewPage", "price", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("OverviewPage", "TOTAL MACD", 0, QApplication::UnicodeUTF8));
+        label_9->setText(QApplication::translate("OverviewPage", "4238000.00156545", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("OverviewPage", "RECENT TRANSACTIONS", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         labelTransactionsStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the MACDCoin network after a connection is established, but this process has not completed yet.", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
-        label_2->setText(QApplication::translate("OverviewPage", "Number of transactions:", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("OverviewPage", "NUMBER OF TRANSACTIONS", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         labelNumTransactions->setToolTip(QApplication::translate("OverviewPage", "Total number of transactions in wallet", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP

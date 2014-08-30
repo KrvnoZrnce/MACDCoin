@@ -44,7 +44,7 @@ public:
     {
         if (AboutDialog->objectName().isEmpty())
             AboutDialog->setObjectName(QString::fromUtf8("AboutDialog"));
-        AboutDialog->resize(593, 331);
+        AboutDialog->resize(774, 544);
         horizontalLayout_2 = new QHBoxLayout(AboutDialog);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_4 = new QLabel(AboutDialog);
