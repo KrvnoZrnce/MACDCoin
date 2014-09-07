@@ -45,19 +45,31 @@ private:
     qint64 currentUnconfirmedBalance;
     qint64 currentImmatureBalance;
 
+    double btcBalance;
+    double usdBalance;
+
+
     TxViewDelegate *txdelegate;
     TransactionFilterProxy *filter;
 
     void paintEvent(QPaintEvent *);
     void setBittrexManager();
+    void updateWealthInBTC(QString price);
+    void updateWealthInUSD(QString price);
+    void updateWealthInEUR(QString price);
+    void updateWealthInCNY(QString price);
 
-    void getGeneralInfo(QString APIurl);
+    void getBTCEUR();
+    void getBTCUSD();
+    void getBTCCNY();
+
     QNetworkAccessManager* nam;
 
 private slots:
     void updateDisplayUnit();
     void handleTransactionClicked(const QModelIndex &index);
     void finishedSlot(QNetworkReply* reply);
+    void getGeneralInfo();
 };
 
 #endif // OVERVIEWPAGE_H

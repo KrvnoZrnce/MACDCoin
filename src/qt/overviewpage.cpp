@@ -11,6 +11,8 @@
 #include "askpassphrasedialog.h"
 #include "bittrexhttpengine.h"
 
+#include "QTimer"
+
 #include <QAbstractItemDelegate>
 #include <QPainter>
 #include "json_spirit.h"
@@ -119,16 +121,35 @@ OverviewPage::OverviewPage(QWidget *parent) :
     ui->labelWalletStatus->setStyleSheet("{color:rgba(37, 170, 225, 255);}");
     ui->labelTransactionsStatus->setStyleSheet("{color:rgba(37, 170, 225, 255);}");
 
+    btcBalance = 0.0;
+
     setBittrexManager();
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
 }
 
-void OverviewPage::getGeneralInfo(QString APIurl)
+void OverviewPage::getGeneralInfo()
 {
-    ui->labelInfo->setText("Fetching MACDCoin price from Bittrex...");
-    QUrl url(APIurl);
+    QUrl url("https://www.bittrex.com/api/v1.1/public/getticker?market=BTC-MACD");
+    QNetworkReply* reply = nam->get(QNetworkRequest(url));
+}
+
+void OverviewPage::getBTCUSD()
+{
+    QUrl url("https://www.bitstamp.net/api/ticker/");
+    QNetworkReply* reply = nam->get(QNetworkRequest(url));
+}
+
+void OverviewPage::getBTCEUR()
+{
+    QUrl url("https://rate-exchange.appspot.com/currency?from=USD&to=EUR");
+    QNetworkReply* reply = nam->get(QNetworkRequest(url));
+}
+
+void OverviewPage::getBTCCNY()
+{
+    QUrl url("https://rate-exchange.appspot.com/currency?from=USD&to=CNY");
     QNetworkReply* reply = nam->get(QNetworkRequest(url));
 }
 
@@ -141,51 +162,102 @@ void OverviewPage::finishedSlot(QNetworkReply* reply)
     // Or the target URL if it was a redirect:
     QVariant redirectionTargetUrl =
     reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
-    // see CS001432 on how to handle this
 
-    // no error received?
     if (reply->error() == QNetworkReply::NoError)
     {
-        // read data from QNetworkReply here
-
-        // Example 1: Creating QImage from the reply
-       // QImageReader imageReader(reply);
-        //QImage pic = imageReader.read();
-
-        // Example 2: Reading bytes form the reply
         QByteArray bytes = reply->readAll();  // bytes
         QString string(bytes);
 
-        //QStringList resultArray;
+        if(reply->request().url().toString().contains("bitstamp", Qt::CaseInsensitive))
+        {
+            QString btcusdPrice = string.mid(28, 6);
 
-        QString price = string.mid(80, 10);
+            updateWealthInUSD(btcusdPrice);
 
-        ui->labelInfo->setText(price.append(" BTC"));
-        //responseString = string; // string
+            getBTCEUR();
+        }
+        else if(reply->request().url().toString().contains("bittrex", Qt::CaseInsensitive))
+        {
+            QString priceBTCUSD = string.mid(80, 10);
 
+            updateWealthInBTC(priceBTCUSD);
+
+            ui->labelInfo->setText(priceBTCUSD.append(" BTC"));
+
+            getBTCUSD();
+        }
+        else if(reply->request().url().toString().contains("CNY", Qt::CaseInsensitive))
+        {
+            QString priceUSDCNY = string.mid(21, 5);
+
+            updateWealthInCNY(priceUSDCNY);
+        }
+        else
+        {
+            QString priceUSDEUR = string.mid(21, 5);
+
+            updateWealthInEUR(priceUSDEUR);
+
+            getBTCCNY();
+        }
     }
-    // Some http error received
     else
     {
         // handle errors here
     }
 
-    // We receive ownership of the reply object
-    // and therefore need to handle deletion.
     reply->deleteLater();
+}
+
+void OverviewPage::updateWealthInBTC(QString price)
+{
+    btcBalance = price.toDouble() * (currentBalance + currentStake) / 1000000;
+
+    QString inBTC = QString::number(btcBalance, 'f', 8);
+
+    ui->inBTCvalue->setText(inBTC.append(" BTC"));
+}
+
+void OverviewPage::updateWealthInCNY(QString price)
+{
+    double cnyBalance = price.toDouble() * usdBalance;
+
+    QString inCNY = QString::number(cnyBalance, 'f', 2);
+
+    ui->inCNYvalue->setText(inCNY.append(" CNY"));
+}
+
+void OverviewPage::updateWealthInUSD(QString price)
+{
+    ui->inEURvalue->setText(price);
+
+    usdBalance = price.toDouble() * btcBalance;
+
+    QString inUSD = QString::number(usdBalance, 'f', 2);
+
+    ui->inUSDvalue->setText(inUSD.append(" USD"));
+}
+
+void OverviewPage::updateWealthInEUR(QString price)
+{
+    double eurBalance = price.toDouble() * usdBalance;
+
+    QString inEUR = QString::number(eurBalance, 'f', 2);
+
+    ui->inEURvalue->setText(inEUR.append(" EUR"));
 }
 
 void OverviewPage::setBittrexManager()
 {
-    //bittrexhttpengine httpclient;
-    //httpclient.getGeneralInfo("https://bittrex.com/api/v1.1/public/getticker");
-    //ui->labelInfo->setText("info");
     nam = new QNetworkAccessManager(this);
     QObject::connect(nam, SIGNAL(finished(QNetworkReply*)),
              this, SLOT(finishedSlot(QNetworkReply*)));
 
+    getGeneralInfo();
 
-    getGeneralInfo("https://www.bittrex.com/api/v1.1/public/getticker?market=BTC-MACD");
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(getGeneralInfo()));
+    timer->start(600000);
 }
 
 void OverviewPage::paintEvent(QPaintEvent *)
@@ -224,6 +296,8 @@ void OverviewPage::setBalance(qint64 balance, qint64 stake, qint64 unconfirmedBa
     bool showImmature = immatureBalance != 0;
     ui->labelImmature->setVisible(showImmature);
     ui->labelImmatureText->setVisible(showImmature);
+
+    getGeneralInfo();
 }
 
 void OverviewPage::setNumTransactions(int count)

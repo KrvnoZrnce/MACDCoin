@@ -22,7 +22,7 @@ static const uint qt_meta_data_OverviewPage[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -38,6 +38,7 @@ static const uint qt_meta_data_OverviewPage[] = {
      171,   13,   13,   13, 0x08,
      191,   14,   13,   13, 0x08,
      235,  229,   13,   13, 0x08,
+     264,   13,   13,   13, 0x08,
 
        0        // eod
 };
@@ -50,6 +51,7 @@ static const char qt_meta_stringdata_OverviewPage[] = {
     "updateDisplayUnit()\0"
     "handleTransactionClicked(QModelIndex)\0"
     "reply\0finishedSlot(QNetworkReply*)\0"
+    "getGeneralInfo()\0"
 };
 
 void OverviewPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -64,6 +66,7 @@ void OverviewPage::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 3: _t->updateDisplayUnit(); break;
         case 4: _t->handleTransactionClicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         case 5: _t->finishedSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 6: _t->getGeneralInfo(); break;
         default: ;
         }
     }
@@ -101,9 +104,9 @@ int OverviewPage::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

@@ -54,11 +54,13 @@ public:
     QSpacerItem *verticalSpacer_3;
     QFormLayout *formLayout_3;
     QLabel *label_11;
-    QLabel *label_12;
+    QLabel *inBTCvalue;
     QLabel *label_13;
-    QLabel *label_14;
+    QLabel *inUSDvalue;
     QLabel *label_15;
-    QLabel *label_16;
+    QLabel *inEURvalue;
+    QLabel *label_12;
+    QLabel *inCNYvalue;
     QSpacerItem *verticalSpacer;
     QFrame *horizontalFrame;
     QHBoxLayout *horizontalLayout_3;
@@ -160,8 +162,8 @@ public:
         labelBalance->setObjectName(QString::fromUtf8("labelBalance"));
         QFont font2;
         font2.setFamily(QString::fromUtf8("Khmer OS"));
-        font2.setBold(true);
-        font2.setWeight(75);
+        font2.setBold(false);
+        font2.setWeight(50);
         labelBalance->setFont(font2);
         labelBalance->setCursor(QCursor(Qt::IBeamCursor));
         labelBalance->setStyleSheet(QString::fromUtf8("color: #ededed;"));
@@ -279,18 +281,18 @@ public:
 
         formLayout_3->setWidget(0, QFormLayout::LabelRole, label_11);
 
-        label_12 = new QLabel(verticalFrame);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
+        inBTCvalue = new QLabel(verticalFrame);
+        inBTCvalue->setObjectName(QString::fromUtf8("inBTCvalue"));
         QFont font4;
         font4.setFamily(QString::fromUtf8("Khmer OS System"));
-        font4.setBold(true);
-        font4.setWeight(75);
-        label_12->setFont(font4);
-        label_12->setStyleSheet(QString::fromUtf8("color:white;"));
-        label_12->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        label_12->setIndent(10);
+        font4.setBold(false);
+        font4.setWeight(50);
+        inBTCvalue->setFont(font4);
+        inBTCvalue->setStyleSheet(QString::fromUtf8("color:white;"));
+        inBTCvalue->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        inBTCvalue->setIndent(10);
 
-        formLayout_3->setWidget(0, QFormLayout::FieldRole, label_12);
+        formLayout_3->setWidget(0, QFormLayout::FieldRole, inBTCvalue);
 
         label_13 = new QLabel(verticalFrame);
         label_13->setObjectName(QString::fromUtf8("label_13"));
@@ -300,14 +302,14 @@ public:
 
         formLayout_3->setWidget(1, QFormLayout::LabelRole, label_13);
 
-        label_14 = new QLabel(verticalFrame);
-        label_14->setObjectName(QString::fromUtf8("label_14"));
-        label_14->setFont(font4);
-        label_14->setStyleSheet(QString::fromUtf8("color:white;"));
-        label_14->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        label_14->setIndent(10);
+        inUSDvalue = new QLabel(verticalFrame);
+        inUSDvalue->setObjectName(QString::fromUtf8("inUSDvalue"));
+        inUSDvalue->setFont(font4);
+        inUSDvalue->setStyleSheet(QString::fromUtf8("color:white;"));
+        inUSDvalue->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        inUSDvalue->setIndent(10);
 
-        formLayout_3->setWidget(1, QFormLayout::FieldRole, label_14);
+        formLayout_3->setWidget(1, QFormLayout::FieldRole, inUSDvalue);
 
         label_15 = new QLabel(verticalFrame);
         label_15->setObjectName(QString::fromUtf8("label_15"));
@@ -317,14 +319,31 @@ public:
 
         formLayout_3->setWidget(2, QFormLayout::LabelRole, label_15);
 
-        label_16 = new QLabel(verticalFrame);
-        label_16->setObjectName(QString::fromUtf8("label_16"));
-        label_16->setFont(font4);
-        label_16->setStyleSheet(QString::fromUtf8("color:white;"));
-        label_16->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        label_16->setIndent(10);
+        inEURvalue = new QLabel(verticalFrame);
+        inEURvalue->setObjectName(QString::fromUtf8("inEURvalue"));
+        inEURvalue->setFont(font4);
+        inEURvalue->setStyleSheet(QString::fromUtf8("color:white;"));
+        inEURvalue->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        inEURvalue->setIndent(10);
 
-        formLayout_3->setWidget(2, QFormLayout::FieldRole, label_16);
+        formLayout_3->setWidget(2, QFormLayout::FieldRole, inEURvalue);
+
+        label_12 = new QLabel(verticalFrame);
+        label_12->setObjectName(QString::fromUtf8("label_12"));
+        label_12->setFont(font3);
+        label_12->setStyleSheet(QString::fromUtf8("color:white"));
+        label_12->setIndent(10);
+
+        formLayout_3->setWidget(3, QFormLayout::LabelRole, label_12);
+
+        inCNYvalue = new QLabel(verticalFrame);
+        inCNYvalue->setObjectName(QString::fromUtf8("inCNYvalue"));
+        inCNYvalue->setFont(font4);
+        inCNYvalue->setStyleSheet(QString::fromUtf8("color:white"));
+        inCNYvalue->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        inCNYvalue->setIndent(10);
+
+        formLayout_3->setWidget(3, QFormLayout::FieldRole, inCNYvalue);
 
 
         verticalLayout_5->addLayout(formLayout_3);
@@ -489,11 +508,7 @@ public:
 
         labelNumTransactions = new QLabel(horizontalFrame2);
         labelNumTransactions->setObjectName(QString::fromUtf8("labelNumTransactions"));
-        QFont font7;
-        font7.setFamily(QString::fromUtf8("Khmer OS System"));
-        font7.setBold(false);
-        font7.setWeight(50);
-        labelNumTransactions->setFont(font7);
+        labelNumTransactions->setFont(font4);
         labelNumTransactions->setStyleSheet(QString::fromUtf8("color: #ededed;"));
         labelNumTransactions->setText(QString::fromUtf8("0"));
         labelNumTransactions->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
@@ -537,11 +552,13 @@ public:
 #endif // QT_NO_TOOLTIP
         label_10->setText(QApplication::translate("OverviewPage", "WEALTH", 0, QApplication::UnicodeUTF8));
         label_11->setText(QApplication::translate("OverviewPage", "in BTC", 0, QApplication::UnicodeUTF8));
-        label_12->setText(QApplication::translate("OverviewPage", "0 BTC", 0, QApplication::UnicodeUTF8));
+        inBTCvalue->setText(QApplication::translate("OverviewPage", "0 BTC", 0, QApplication::UnicodeUTF8));
         label_13->setText(QApplication::translate("OverviewPage", "in USD", 0, QApplication::UnicodeUTF8));
-        label_14->setText(QApplication::translate("OverviewPage", "0 USD", 0, QApplication::UnicodeUTF8));
+        inUSDvalue->setText(QApplication::translate("OverviewPage", "0 USD", 0, QApplication::UnicodeUTF8));
         label_15->setText(QApplication::translate("OverviewPage", "in EUR", 0, QApplication::UnicodeUTF8));
-        label_16->setText(QApplication::translate("OverviewPage", "0 EUR", 0, QApplication::UnicodeUTF8));
+        inEURvalue->setText(QApplication::translate("OverviewPage", "0 EUR", 0, QApplication::UnicodeUTF8));
+        label_12->setText(QApplication::translate("OverviewPage", "in CNY", 0, QApplication::UnicodeUTF8));
+        inCNYvalue->setText(QApplication::translate("OverviewPage", "0 CNY", 0, QApplication::UnicodeUTF8));
         label_7->setText(QApplication::translate("OverviewPage", "PRICE", 0, QApplication::UnicodeUTF8));
         labelInfo->setText(QApplication::translate("OverviewPage", "price", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("OverviewPage", "TOTAL MACD", 0, QApplication::UnicodeUTF8));
