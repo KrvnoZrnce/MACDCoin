@@ -45,6 +45,7 @@ public:
         if (AboutDialog->objectName().isEmpty())
             AboutDialog->setObjectName(QString::fromUtf8("AboutDialog"));
         AboutDialog->resize(774, 544);
+        AboutDialog->setStyleSheet(QString::fromUtf8("background-color:rgb(27, 40, 54);"));
         horizontalLayout_2 = new QHBoxLayout(AboutDialog);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_4 = new QLabel(AboutDialog);
@@ -113,7 +114,7 @@ public:
 
         buttonBox = new QDialogButtonBox(AboutDialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setAutoFillBackground(true);
+        buttonBox->setAutoFillBackground(false);
         buttonBox->setStyleSheet(QString::fromUtf8("color:white;"));
         buttonBox->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         buttonBox->setOrientation(Qt::Horizontal);

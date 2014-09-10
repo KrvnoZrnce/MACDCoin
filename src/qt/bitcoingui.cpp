@@ -109,7 +109,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     overviewPage = new OverviewPage();
 
     transactionsPage = new QWidget(this);
-    transactionsPage->setStyleSheet("QWidget{background-color:rgb(27, 40, 54);background-image: url(:/images/base_back);}");
+    transactionsPage->setObjectName(QString("transPage"));
     QVBoxLayout *vbox = new QVBoxLayout();
     transactionView = new TransactionView(this);
     vbox->addWidget(transactionView);
@@ -130,6 +130,8 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralWidget->addWidget(receiveCoinsPage);
     centralWidget->addWidget(sendCoinsPage);
     setCentralWidget(centralWidget);
+
+    transactionsPage->setStyleSheet("QWidget#transPage{background-color:rgb(27, 40, 54);background-image: url(:/images/base_back);} QWidget{background-color:rgb(27, 40, 54); color:white;} QFrame{background-color:rgba(0,0,0,0);}");
 
     centralWidget->setFixedSize(QSize(820, 600));
     centralWidget->lower();
@@ -376,8 +378,8 @@ void BitcoinGUI::createToolBars()
     //toolbar->addAction(exportAction);
 
     iconLabel = new QWidget();
-    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/overview);}");
-    iconLabel->setFixedSize(QSize(70,70));
+    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/overview); margin-left:20px;}");
+    iconLabel->setFixedSize(QSize(95,70));
     toolbar->addWidget(iconLabel);
 
     //QToolBar *toolbar2 = addToolBar(tr("Actions toolbar"));
@@ -388,11 +390,10 @@ void BitcoinGUI::createToolBars()
     toolbar->setMovable(false);
     toolbar->setObjectName("tabsToolbar");
     toolbar->setFixedSize(QSize(820, 70));
-    //toolbar->setContentsMargins(10, 0, 0, 0);
     //toolbar->setGeometry(32, 32, 820, 70);
     //toolbar->setIconSize(QSize(40, 40));
     //toolbar2->setObjectName("actionsToolbar");
-    toolbar->setStyleSheet("QToolButton { min-height:70px;color:white;border:none;margin:0px;padding:0px;text-transform:uppercase;padding:0px;} QToolButton:hover { color: white; background-color: none; margin:0px; padding:0px; border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:rgba(37, 170, 225, 255);} QToolButton:checked { color: rgba(37, 170, 225, 255); background-color: none; margin:0px; padding:0px;} QToolButton:pressed { color: rgba(37, 170, 225, 255); background-color: none; margin:0px; padding:0px; border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:rgba(37, 170, 225, 255);} QToolButton:selected { color: #ffffff; background-color: none; margin:0px;padding0px;;border:none; } #tabsToolbar { spacing:15px; color: #b2b2b2; background-color: rgba(22, 40, 52, 0); margin:0px; padding:0px; background-image: url(:/images/toolback);} QToolBar::handle { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #4E7492, stop:1.0 rgb(22, 40, 52)}); }");
+    toolbar->setStyleSheet("QToolButton { min-height:70px;color:white;border:none;margin-left:15px;padding:0px;text-transform:uppercase;padding:0px;} QToolButton:hover { color: white; background-color: none; margin-left:15px; padding:0px; border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:rgba(37, 170, 225, 255);} QToolButton:checked { color: rgba(37, 170, 225, 255); background-color: none; margin-left:15px; padding:0px;} QToolButton:pressed { color: rgba(37, 170, 225, 255); background-color: none; margin-left:15px; padding:0px; border-bottom-style:solid; border-bottom-width:1px; border-bottom-color:rgba(37, 170, 225, 255);} QToolButton:selected { color: #ffffff; background-color: none; margin-left:15px; padding0px;;border:none; } #tabsToolbar { spacing:0px; color: #b2b2b2; background-color: rgba(22, 40, 52, 0); margin:0px; padding:0px; background-image: url(:/images/toolback);} QToolBar::handle { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #4E7492, stop:1.0 rgb(22, 40, 52)}); QToolBar::separator { background-color: rgba(0, 0, 0, 0); border-width:0px; border-color:rgba(0, 0, 0, 0); border-style:solid; min-width:100px; max-height:0px;}");
     //centralWidget->move(0, 54);
     //toolbar2->setStyleSheet("QToolButton { min-height:36px;color:#b2b2b2;border:none;margin:0px;padding:0px;} QToolButton:hover { color: #0899C9; background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #0A3050, stop:1.0 #070010); margin:0px; padding:0px; border:none; } QToolButton:checked { color: #0899C9; background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #0A3050, stop:1.0 #070010); margin:0px; padding:0px; border-right-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #3b3b3b, stop:0.5 #6c6c6f, stop:1.0 #6c6c6f);border-right-width:3px;border-right-style:inset; border-left-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #2a2a2a, stop:0.5 #5b5b5e, stop:1.0 #5b5b5e);border-left-width:2px;border-left-style:inset; } QToolButton:pressed { color: #0899C9; background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #0A3050, stop:1.0 #070010); margin:0px; padding:0px; border:none;} QToolButton:selected { color: #ffffff; background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #474748, stop:1.0 #353536); margin:0px;padding:0px;border:none; } #actionsToolbar { min-height:48px; color: #b2b2b2; background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #4E7492, stop:1.0 #0A3050); margin:0px; padding:0px; border-top-color: rgba(160, 160, 160, 191); border-top-width: 1px; border-top-style: inset; } QToolBar::handle { background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #4E7492, stop:1.0 #0A3050); }");
 }
@@ -757,7 +758,7 @@ void BitcoinGUI::gotoOverviewPage()
 
     //centralWidget->move(0, 54);
 
-    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/overview);}");
+    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/overview);margin-left:25px;}");
 
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
@@ -768,7 +769,7 @@ void BitcoinGUI::gotoHistoryPage()
     historyAction->setChecked(true);
     centralWidget->setCurrentWidget(transactionsPage);
 
-    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/history);}");
+    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/history);margin-left:25px;}");
 
     exportAction->setEnabled(true);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
@@ -780,7 +781,7 @@ void BitcoinGUI::gotoAddressBookPage()
     addressBookAction->setChecked(true);
     centralWidget->setCurrentWidget(addressBookPage);
 
-    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/address-book);}");
+    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/address-book);margin-left:25px;}");
 
     exportAction->setEnabled(true);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
@@ -792,7 +793,7 @@ void BitcoinGUI::gotoReceiveCoinsPage()
     receiveCoinsAction->setChecked(true);
     centralWidget->setCurrentWidget(receiveCoinsPage);
 
-    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/receiving_addresses);}");
+    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/receiving_addresses);margin-left:25px;}");
 
     exportAction->setEnabled(true);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
@@ -804,7 +805,7 @@ void BitcoinGUI::gotoSendCoinsPage()
     sendCoinsAction->setChecked(true);
     centralWidget->setCurrentWidget(sendCoinsPage);
 
-    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/send);}");
+    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/send);margin-left:25px;}");
 
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);

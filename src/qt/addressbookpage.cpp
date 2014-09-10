@@ -126,6 +126,7 @@ void AddressBookPage::setModel(AddressTableModel *model)
         // Send filter
         proxyModel->setFilterRole(AddressTableModel::TypeRole);
         proxyModel->setFilterFixedString(AddressTableModel::Send);
+        layout()->removeItem(ui->theSpacer);
         break;
     }
     ui->tableView->setModel(proxyModel);
@@ -137,8 +138,7 @@ void AddressBookPage::setModel(AddressTableModel *model)
     ui->tableView->horizontalHeader()->setResizeMode(
             AddressTableModel::Label, QHeaderView::Stretch);
 
-    ui->tableView->setStyleSheet("QTableView{border-color:rgba(37, 170, 255, 155); border-width:1px; border-style:solid;background-color: rgba(27, 40, 54, 0);color:white; background-image:none;}");
-
+    ui->tableView->setStyleSheet("QTableView{border-color:rgba(37, 170, 255, 255); border-width:1px; border-style:solid;background-color: rgba(27, 40, 54, 0);color:white; background-image:none; alternate-background-color: rgba(37, 170, 225, 10);} QHeaderView::section{background-image:none; background-color: rgb(37, 170, 225); text-transform:uppercase; color:white;}");
 
     connect(ui->tableView->selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SLOT(selectionChanged()));

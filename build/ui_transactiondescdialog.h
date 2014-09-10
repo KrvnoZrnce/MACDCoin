@@ -17,6 +17,7 @@
 #include <QtGui/QDialog>
 #include <QtGui/QDialogButtonBox>
 #include <QtGui/QHeaderView>
+#include <QtGui/QSpacerItem>
 #include <QtGui/QTextEdit>
 #include <QtGui/QVBoxLayout>
 
@@ -26,6 +27,7 @@ class Ui_TransactionDescDialog
 {
 public:
     QVBoxLayout *verticalLayout;
+    QSpacerItem *verticalSpacer;
     QTextEdit *detailText;
     QDialogButtonBox *buttonBox;
 
@@ -39,11 +41,16 @@ public:
         TransactionDescDialog->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayout = new QVBoxLayout(TransactionDescDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalSpacer = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(verticalSpacer);
+
         detailText = new QTextEdit(TransactionDescDialog);
         detailText->setObjectName(QString::fromUtf8("detailText"));
         detailText->setStyleSheet(QString::fromUtf8("border-color:rgba(37, 170, 255, 155);\n"
 "border-width:1px;\n"
-"border-style:solid;"));
+"border-style:solid;\n"
+"color:white;"));
         detailText->setReadOnly(true);
 
         verticalLayout->addWidget(detailText);

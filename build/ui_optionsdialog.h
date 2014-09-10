@@ -88,14 +88,15 @@ public:
         if (OptionsDialog->objectName().isEmpty())
             OptionsDialog->setObjectName(QString::fromUtf8("OptionsDialog"));
         OptionsDialog->resize(540, 380);
-        OptionsDialog->setAutoFillBackground(true);
+        OptionsDialog->setAutoFillBackground(false);
+        OptionsDialog->setStyleSheet(QString::fromUtf8("background-color:rgb(27, 40, 54); color:white;"));
         OptionsDialog->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         OptionsDialog->setModal(true);
         verticalLayout = new QVBoxLayout(OptionsDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         tabWidget = new QTabWidget(OptionsDialog);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setAutoFillBackground(true);
+        tabWidget->setAutoFillBackground(false);
         tabWidget->setTabPosition(QTabWidget::North);
         tabMain = new QWidget();
         tabMain->setObjectName(QString::fromUtf8("tabMain"));
@@ -303,6 +304,7 @@ public:
         okButton = new QPushButton(OptionsDialog);
         okButton->setObjectName(QString::fromUtf8("okButton"));
         okButton->setStyleSheet(QString::fromUtf8("color:white;"));
+        okButton->setFlat(true);
 
         horizontalLayout_Buttons->addWidget(okButton);
 
@@ -310,6 +312,7 @@ public:
         cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
         cancelButton->setStyleSheet(QString::fromUtf8("color:white;"));
         cancelButton->setAutoDefault(false);
+        cancelButton->setFlat(true);
 
         horizontalLayout_Buttons->addWidget(cancelButton);
 
@@ -317,6 +320,7 @@ public:
         applyButton->setObjectName(QString::fromUtf8("applyButton"));
         applyButton->setStyleSheet(QString::fromUtf8("color:white;"));
         applyButton->setAutoDefault(false);
+        applyButton->setFlat(true);
 
         horizontalLayout_Buttons->addWidget(applyButton);
 
@@ -334,7 +338,7 @@ public:
 
         retranslateUi(OptionsDialog);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(OptionsDialog);

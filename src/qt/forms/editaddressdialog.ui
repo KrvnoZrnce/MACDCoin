@@ -14,7 +14,10 @@
    <string>Edit Address</string>
   </property>
   <property name="autoFillBackground">
-   <bool>true</bool>
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(27, 40, 54);</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -27,6 +30,9 @@
      </property>
      <item row="0" column="0">
       <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">color:white</string>
+       </property>
        <property name="text">
         <string>&amp;Label</string>
        </property>
@@ -40,10 +46,16 @@
        <property name="toolTip">
         <string>The label associated with this address book entry</string>
        </property>
+       <property name="styleSheet">
+        <string notr="true">border-color:rgb(37, 170, 225); border-width:1px; border-style:solid; color:white;</string>
+       </property>
       </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">color:white</string>
+       </property>
        <property name="text">
         <string>&amp;Address</string>
        </property>
@@ -56,6 +68,9 @@
       <widget class="QLineEdit" name="addressEdit">
        <property name="toolTip">
         <string>The address associated with this address book entry. This can only be modified for sending addresses.</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color:rgb(37, 170, 225); border-width:1px; border-style:solid; color:white;</string>
        </property>
       </widget>
      </item>

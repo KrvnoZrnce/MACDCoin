@@ -84,20 +84,49 @@ public:
     {
         if (RPCConsole->objectName().isEmpty())
             RPCConsole->setObjectName(QString::fromUtf8("RPCConsole"));
-        RPCConsole->resize(740, 539);
+        RPCConsole->resize(821, 669);
         QFont font;
         font.setFamily(QString::fromUtf8("Khmer OS"));
         RPCConsole->setFont(font);
         RPCConsole->setAutoFillBackground(false);
-        RPCConsole->setStyleSheet(QString::fromUtf8("background-color: rgb(27, 40, 54);"));
+        RPCConsole->setStyleSheet(QString::fromUtf8("#RPCConsole { color: #rgb(78, 187, 57);\n"
+"background-image: url(:/images/base_back);}\n"
+""));
         RPCConsole->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayout_2 = new QVBoxLayout(RPCConsole);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         tabWidget = new QTabWidget(RPCConsole);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
         tabWidget->setFont(font);
-        tabWidget->setStyleSheet(QString::fromUtf8("color:white;"));
-        tabWidget->setTabShape(QTabWidget::Triangular);
+        tabWidget->setStyleSheet(QString::fromUtf8("\n"
+"    QTabWidget::tab-bar  {\n"
+"        left: 5px; /* move to the right by 5px */\n"
+"color:white;\n"
+"    }\n"
+"     \n"
+"    /* Style the tab using the tab sub-control. Note that\n"
+"        it reads QTabBar _not_ QTabWidget */\n"
+"    QTabBar::tab  {\n"
+"        background: rgba(27, 40, 54,0);\n"
+"        min-width: 8ex;\n"
+"color:white;\n"
+"    }\n"
+"     \n"
+"    QTabBar::tab:selected, QTabBar::tab:hover  {\n"
+"        background:  rgba(27, 40, 54,0);\n"
+"    }\n"
+"     \n"
+"    QTabBar::tab:selected  {\n"
+"        border-top-color: rgba(37, 170, 225, 255);\n"
+"		border-top-style:solid;\n"
+"		border-top-width:1px; /* same as pane color */\n"
+"color:white;\n"
+"    }\n"
+"     \n"
+"color:white; background-color: rgba(27, 40, 54,0);\n"
+"\n"
+""));
+        tabWidget->setTabShape(QTabWidget::Rounded);
         tabWidget->setElideMode(Qt::ElideNone);
         tabWidget->setUsesScrollButtons(true);
         tabWidget->setDocumentMode(true);
@@ -123,7 +152,7 @@ public:
         label_13 = new QLabel(tab_info);
         label_13->setObjectName(QString::fromUtf8("label_13"));
         QFont font1;
-        font1.setFamily(QString::fromUtf8("Khmer OS"));
+        font1.setFamily(QString::fromUtf8("Khmer OS System"));
         font1.setPointSize(10);
         label_13->setFont(font1);
         label_13->setStyleSheet(QString::fromUtf8("color:white;"));
@@ -134,7 +163,7 @@ public:
         label_9 = new QLabel(tab_info);
         label_9->setObjectName(QString::fromUtf8("label_9"));
         QFont font2;
-        font2.setFamily(QString::fromUtf8("Khmer OS"));
+        font2.setFamily(QString::fromUtf8("Khmer OS System"));
         font2.setBold(true);
         font2.setWeight(75);
         label_9->setFont(font2);
@@ -228,7 +257,11 @@ public:
 
         label_11 = new QLabel(tab_info);
         label_11->setObjectName(QString::fromUtf8("label_11"));
-        label_11->setFont(font2);
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("Khmer OS"));
+        font3.setBold(true);
+        font3.setWeight(75);
+        label_11->setFont(font3);
         label_11->setStyleSheet(QString::fromUtf8("color:white;"));
 
         gridLayout->addWidget(label_11, 8, 1, 1, 1);
@@ -269,7 +302,7 @@ public:
 
         label_10 = new QLabel(tab_info);
         label_10->setObjectName(QString::fromUtf8("label_10"));
-        label_10->setFont(font2);
+        label_10->setFont(font3);
         label_10->setStyleSheet(QString::fromUtf8("color:white;"));
 
         gridLayout->addWidget(label_10, 12, 1, 1, 1);
@@ -329,8 +362,9 @@ public:
 
         showCLOptionsButton = new QPushButton(tab_info);
         showCLOptionsButton->setObjectName(QString::fromUtf8("showCLOptionsButton"));
-        showCLOptionsButton->setStyleSheet(QString::fromUtf8("color:white;"));
+        showCLOptionsButton->setStyleSheet(QString::fromUtf8("color:white; background-color:rgba(37, 170, 225, 10); background-image:none;"));
         showCLOptionsButton->setAutoDefault(false);
+        showCLOptionsButton->setFlat(true);
 
         gridLayout->addWidget(showCLOptionsButton, 20, 1, 1, 1);
 
@@ -354,8 +388,9 @@ public:
 
         openDebugLogfileButton = new QPushButton(tab_info);
         openDebugLogfileButton->setObjectName(QString::fromUtf8("openDebugLogfileButton"));
-        openDebugLogfileButton->setStyleSheet(QString::fromUtf8("color:white;"));
+        openDebugLogfileButton->setStyleSheet(QString::fromUtf8("color:white; background-color:rgba(37, 170, 225, 10); background-image:none;"));
         openDebugLogfileButton->setAutoDefault(false);
+        openDebugLogfileButton->setFlat(true);
 
         gridLayout->addWidget(openDebugLogfileButton, 20, 3, 1, 1);
 
@@ -431,6 +466,7 @@ public:
         clearButton->setIcon(icon);
         clearButton->setShortcut(QString::fromUtf8("Ctrl+L"));
         clearButton->setAutoDefault(false);
+        clearButton->setFlat(true);
 
         horizontalLayout->addWidget(clearButton);
 

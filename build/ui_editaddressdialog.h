@@ -40,7 +40,8 @@ public:
         if (EditAddressDialog->objectName().isEmpty())
             EditAddressDialog->setObjectName(QString::fromUtf8("EditAddressDialog"));
         EditAddressDialog->resize(457, 126);
-        EditAddressDialog->setAutoFillBackground(true);
+        EditAddressDialog->setAutoFillBackground(false);
+        EditAddressDialog->setStyleSheet(QString::fromUtf8("background-color:rgb(27, 40, 54);"));
         EditAddressDialog->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayout = new QVBoxLayout(EditAddressDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -49,21 +50,25 @@ public:
         formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
         label = new QLabel(EditAddressDialog);
         label->setObjectName(QString::fromUtf8("label"));
+        label->setStyleSheet(QString::fromUtf8("color:white"));
 
         formLayout->setWidget(0, QFormLayout::LabelRole, label);
 
         labelEdit = new QLineEdit(EditAddressDialog);
         labelEdit->setObjectName(QString::fromUtf8("labelEdit"));
+        labelEdit->setStyleSheet(QString::fromUtf8("border-color:rgb(37, 170, 225); border-width:1px; border-style:solid; color:white;"));
 
         formLayout->setWidget(0, QFormLayout::FieldRole, labelEdit);
 
         label_2 = new QLabel(EditAddressDialog);
         label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setStyleSheet(QString::fromUtf8("color:white"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 
         addressEdit = new QLineEdit(EditAddressDialog);
         addressEdit->setObjectName(QString::fromUtf8("addressEdit"));
+        addressEdit->setStyleSheet(QString::fromUtf8("border-color:rgb(37, 170, 225); border-width:1px; border-style:solid; color:white;"));
 
         formLayout->setWidget(1, QFormLayout::FieldRole, addressEdit);
 

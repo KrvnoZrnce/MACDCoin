@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>740</width>
-    <height>539</height>
+    <width>821</width>
+    <height>669</height>
    </rect>
   </property>
   <property name="font">
@@ -22,7 +22,9 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(27, 40, 54);</string>
+   <string notr="true">#RPCConsole { color: #rgb(78, 187, 57);
+background-image: url(:/images/base_back);}
+</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -36,10 +38,37 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color:white;</string>
+      <string notr="true">
+    QTabWidget::tab-bar  {
+        left: 5px; /* move to the right by 5px */
+color:white;
+    }
+     
+    /* Style the tab using the tab sub-control. Note that
+        it reads QTabBar _not_ QTabWidget */
+    QTabBar::tab  {
+        background: rgba(27, 40, 54,0);
+        min-width: 8ex;
+color:white;
+    }
+     
+    QTabBar::tab:selected, QTabBar::tab:hover  {
+        background:  rgba(27, 40, 54,0);
+    }
+     
+    QTabBar::tab:selected  {
+        border-top-color: rgba(37, 170, 225, 255);
+		border-top-style:solid;
+		border-top-width:1px; /* same as pane color */
+color:white;
+    }
+     
+color:white; background-color: rgba(27, 40, 54,0);
+
+</string>
      </property>
      <property name="tabShape">
-      <enum>QTabWidget::Triangular</enum>
+      <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
       <number>0</number>
@@ -121,7 +150,7 @@
         <widget class="QLabel" name="label_13">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -140,7 +169,7 @@
         <widget class="QLabel" name="label_9">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -157,7 +186,7 @@
         <widget class="QLabel" name="label_5">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -176,7 +205,7 @@
         <widget class="QLabel" name="label_6">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -195,7 +224,7 @@
         <widget class="QLabel" name="clientVersion">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -223,7 +252,7 @@
         <widget class="QLabel" name="label_12">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -242,7 +271,7 @@
         <widget class="QLabel" name="label_14">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -261,7 +290,7 @@
         <widget class="QLabel" name="openSSLVersion">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -289,7 +318,7 @@
         <widget class="QLabel" name="buildDate">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -317,7 +346,7 @@
         <widget class="QLabel" name="label_7">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -336,7 +365,7 @@
         <widget class="QLabel" name="startupTime">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -394,7 +423,7 @@
         <widget class="QLabel" name="label_8">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -413,7 +442,7 @@
         <widget class="QLabel" name="numberOfConnections">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -441,7 +470,7 @@
         <widget class="QLabel" name="label_3">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -477,7 +506,7 @@
         <widget class="QLabel" name="label_4">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -496,7 +525,7 @@
         <widget class="QLabel" name="numberOfBlocks">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -524,7 +553,7 @@
         <widget class="QLabel" name="label_2">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -543,7 +572,7 @@
         <widget class="QLabel" name="totalBlocks">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -571,7 +600,7 @@
         <widget class="QLabel" name="lastBlockTime">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -617,7 +646,7 @@
           <string>Show the MACDCoin-Qt help message to get a list with possible MACDCoin command-line options.</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">color:white;</string>
+          <string notr="true">color:white; background-color:rgba(37, 170, 225, 10); background-image:none;</string>
          </property>
          <property name="text">
           <string>&amp;Show</string>
@@ -625,13 +654,16 @@
          <property name="autoDefault">
           <bool>false</bool>
          </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="19" column="1">
         <widget class="QLabel" name="labelCLOptions">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -664,7 +696,7 @@
         <widget class="QLabel" name="labelDebugLogfile">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -683,7 +715,7 @@
           <string>Open the MACDCoin debug log file from the current data directory. This can take a few seconds for large log files.</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">color:white;</string>
+          <string notr="true">color:white; background-color:rgba(37, 170, 225, 10); background-image:none;</string>
          </property>
          <property name="text">
           <string>&amp;Open</string>
@@ -691,13 +723,16 @@
          <property name="autoDefault">
           <bool>false</bool>
          </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="2" column="3">
         <widget class="QLabel" name="clientName">
          <property name="font">
           <font>
-           <family>Khmer OS</family>
+           <family>Khmer OS System</family>
            <pointsize>10</pointsize>
           </font>
          </property>
@@ -867,6 +902,9 @@ border-style:solid;</string>
            </property>
            <property name="autoDefault">
             <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
            </property>
           </widget>
          </item>

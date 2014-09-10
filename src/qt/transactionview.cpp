@@ -60,7 +60,7 @@ TransactionView::TransactionView(QWidget *parent) :
     dateWidget->addItem(tr("This year"), ThisYear);
     dateWidget->addItem(tr("Range..."), Range);
     hlayout->addWidget(dateWidget);
-    dateWidget->setStyleSheet("QComboBox{color:white; border-color:rgba(37, 170, 225, 155); border-width:1px; border-style:solid;} QComboBox QAbstractItemView{ selection-background-color: rgba(37, 170, 225, 155);}");
+    dateWidget->setStyleSheet("QComboBox{color:white; border-color:rgba(37, 170, 225, 255); border-width:1px; border-style:solid;} QComboBox QAbstractItemView{ selection-background-color: rgba(37, 170, 225, 255); background-color: rgb(27, 40, 54)}");
 
     typeWidget = new QComboBox(this);
 #ifdef Q_OS_MAC
@@ -79,7 +79,7 @@ TransactionView::TransactionView(QWidget *parent) :
     typeWidget->addItem(tr("Mined"), TransactionFilterProxy::TYPE(TransactionRecord::Generated));
     typeWidget->addItem(tr("Other"), TransactionFilterProxy::TYPE(TransactionRecord::Other));
 
-    typeWidget->setStyleSheet("color:white; border-color:rgba(37, 170, 225, 155); border-width:1px; border-style:solid;");
+    typeWidget->setStyleSheet("QComboBox{color:white; border-color:rgba(37, 170, 225, 255); border-width:1px; border-style:solid;} QComboBox QAbstractItemView{ selection-background-color: rgba(37, 170, 225, 255); background-color: rgb(27, 40, 54)}");
 
     hlayout->addWidget(typeWidget);
 
@@ -90,7 +90,7 @@ TransactionView::TransactionView(QWidget *parent) :
 #endif
     hlayout->addWidget(addressWidget);
 
-    addressWidget->setStyleSheet("color:white; border-color:rgba(37, 170, 225, 155); border-width:1px; border-style:solid;");
+    addressWidget->setStyleSheet("color:white; border-color:rgba(37, 170, 225, 255); border-width:1px; border-style:solid;");
 
     amountWidget = new QLineEdit(this);
 #if QT_VERSION >= 0x040700
@@ -103,20 +103,25 @@ TransactionView::TransactionView(QWidget *parent) :
     amountWidget->setFixedWidth(100);
 #endif
     amountWidget->setValidator(new QDoubleValidator(0, 1e20, 8, this));
-    amountWidget->setStyleSheet("color:white; border-color:rgba(37, 170, 225, 155); border-width:1px; border-style:solid;");
+    amountWidget->setStyleSheet("color:white; border-color:rgba(37, 170, 225, 255); border-width:1px; border-style:solid;");
     hlayout->addWidget(amountWidget);
 
     QVBoxLayout *vlayout = new QVBoxLayout(this);
-    vlayout->setContentsMargins(0,0,0,0);
+    vlayout->setContentsMargins(0,15,0,0);
     vlayout->setSpacing(0);
 
     QTableView *view = new QTableView(this);
     vlayout->addLayout(hlayout);
     vlayout->addWidget(createDateRangeWidget());
     vlayout->addWidget(view);
-    vlayout->setSpacing(0);
+    vlayout->setSpacing(15);
     int width = view->verticalScrollBar()->sizeHint().width();
-    view->setStyleSheet("QTableView{border-color:rgba(37, 170, 255, 155); border-width:1px; border-style:solid;background-color: rgb(27, 40, 54);color:white; background-image:none;}");
+    view->setStyleSheet("QTableView{border-color:rgba(37, 170, 255, 255); border-width:1px; border-style:solid;background-color: rgba(27, 40, 54, 0);color:white; background-image:none; alternate-background-color: rgba(37, 170, 225, 10);} QHeaderView::section{background-image:none; background-color: rgb(37, 170, 225); text-transform:uppercase; color:white;}");
+    //view->palette().setColor(QPalette::Highlight, QColor("rgb(27, 40, 54)"));
+    QPalette p = view->palette();
+    p.setColor(QPalette::Highlight, QColor(Qt::red));
+    view->setPalette(p);
+    view->setShowGrid(false);
 
     // Cover scroll bar width with spacing
 #ifdef Q_OS_MAC
@@ -125,7 +130,7 @@ TransactionView::TransactionView(QWidget *parent) :
     hlayout->addSpacing(width);
 #endif
     // Always show scroll bar
-    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     view->setTabKeyNavigation(false);
     view->setContextMenuPolicy(Qt::CustomContextMenu);
 
@@ -387,10 +392,10 @@ void TransactionView::showDetails()
 QWidget *TransactionView::createDateRangeWidget()
 {
     dateRangeWidget = new QFrame();
-    dateRangeWidget->setFrameStyle(QFrame::Panel | QFrame::Raised);
+    //dateRangeWidget->setFrameStyle(QFrame::Panel | QFrame::Raised);
     dateRangeWidget->setContentsMargins(0,10,10,10);
     QHBoxLayout *layout = new QHBoxLayout(dateRangeWidget);
-    layout->setContentsMargins(0,10,10,10);
+    layout->setContentsMargins(10,0,0,0);
     layout->addSpacing(20);
     layout->addWidget(new QLabel(tr("Range:")));
     layout->addSpacing(20);

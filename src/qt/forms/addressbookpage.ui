@@ -10,6 +10,9 @@
     <height>380</height>
    </rect>
   </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::CustomContextMenu</enum>
+  </property>
   <property name="windowTitle">
    <string>Address Book</string>
   </property>
@@ -66,6 +69,22 @@ background-image: url(:/images/base_back);}</string>
       <number>10</number>
      </property>
     </widget>
+   </item>
+   <item>
+    <spacer name="theSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>15</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item>
     <widget class="QTableView" name="tableView">
@@ -215,6 +234,12 @@ selection-color: red; }</string>
      </property>
      <property name="selectionBehavior">
       <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="showGrid">
+      <bool>false</bool>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::NoPen</enum>
      </property>
      <property name="sortingEnabled">
       <bool>true</bool>

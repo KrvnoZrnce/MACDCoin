@@ -52,12 +52,14 @@ public:
         sizePolicy.setHeightForWidth(AskPassphraseDialog->sizePolicy().hasHeightForWidth());
         AskPassphraseDialog->setSizePolicy(sizePolicy);
         AskPassphraseDialog->setMinimumSize(QSize(550, 0));
-        AskPassphraseDialog->setAutoFillBackground(true);
+        AskPassphraseDialog->setAutoFillBackground(false);
+        AskPassphraseDialog->setStyleSheet(QString::fromUtf8("background-color:rgb(27, 40, 54);"));
         AskPassphraseDialog->setLocale(QLocale(QLocale::English, QLocale::UnitedStates));
         verticalLayout = new QVBoxLayout(AskPassphraseDialog);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         warningLabel = new QLabel(AskPassphraseDialog);
         warningLabel->setObjectName(QString::fromUtf8("warningLabel"));
+        warningLabel->setStyleSheet(QString::fromUtf8("background-color:rgb(37, 170, 225); color:white;"));
         warningLabel->setTextFormat(Qt::RichText);
         warningLabel->setWordWrap(true);
 
@@ -74,6 +76,8 @@ public:
 
         passEdit1 = new QLineEdit(AskPassphraseDialog);
         passEdit1->setObjectName(QString::fromUtf8("passEdit1"));
+        passEdit1->setStyleSheet(QString::fromUtf8("border-color:rgb(37, 170, 225); border-width:1px; border-style:solid;\n"
+"color:white;"));
         passEdit1->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, passEdit1);
@@ -86,6 +90,8 @@ public:
 
         passEdit2 = new QLineEdit(AskPassphraseDialog);
         passEdit2->setObjectName(QString::fromUtf8("passEdit2"));
+        passEdit2->setStyleSheet(QString::fromUtf8("border-color:rgb(37, 170, 225); border-width:1px; border-style:solid;\n"
+"color:white;"));
         passEdit2->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, passEdit2);
@@ -98,6 +104,8 @@ public:
 
         passEdit3 = new QLineEdit(AskPassphraseDialog);
         passEdit3->setObjectName(QString::fromUtf8("passEdit3"));
+        passEdit3->setStyleSheet(QString::fromUtf8("border-color:rgb(37, 170, 225); border-width:1px; border-style:solid;\n"
+"color:white;"));
         passEdit3->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(2, QFormLayout::FieldRole, passEdit3);
@@ -108,6 +116,7 @@ public:
         font.setBold(true);
         font.setWeight(75);
         capsLabel->setFont(font);
+        capsLabel->setStyleSheet(QString::fromUtf8("background-color:rgb(37, 170, 225); color:white;"));
         capsLabel->setAlignment(Qt::AlignCenter);
 
         formLayout->setWidget(3, QFormLayout::FieldRole, capsLabel);
@@ -124,7 +133,7 @@ public:
 
         buttonBox = new QDialogButtonBox(AskPassphraseDialog);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
-        buttonBox->setStyleSheet(QString::fromUtf8("color:white"));
+        buttonBox->setStyleSheet(QString::fromUtf8("QDialogButtonBox::Cancel{color:white; background-image:none; background-color:rgba(0,0,0,0);}"));
         buttonBox->setOrientation(Qt::Horizontal);
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 

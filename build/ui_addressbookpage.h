@@ -32,6 +32,7 @@ public:
     QVBoxLayout *verticalLayout;
     QSpacerItem *verticalSpacer;
     QLabel *labelExplanation;
+    QSpacerItem *theSpacer;
     QTableView *tableView;
     QHBoxLayout *horizontalLayout;
     QPushButton *newAddressButton;
@@ -48,6 +49,7 @@ public:
         if (AddressBookPage->objectName().isEmpty())
             AddressBookPage->setObjectName(QString::fromUtf8("AddressBookPage"));
         AddressBookPage->resize(984, 380);
+        AddressBookPage->setContextMenuPolicy(Qt::CustomContextMenu);
         AddressBookPage->setAutoFillBackground(false);
         AddressBookPage->setStyleSheet(QString::fromUtf8("#AddressBookPage{background-color: rgb(27, 40, 54);\n"
 "background-image: url(:/images/base_back);}"));
@@ -70,6 +72,10 @@ public:
         labelExplanation->setMargin(10);
 
         verticalLayout->addWidget(labelExplanation);
+
+        theSpacer = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(theSpacer);
 
         tableView = new QTableView(AddressBookPage);
         tableView->setObjectName(QString::fromUtf8("tableView"));
@@ -115,6 +121,8 @@ public:
         tableView->setAlternatingRowColors(true);
         tableView->setSelectionMode(QAbstractItemView::SingleSelection);
         tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+        tableView->setShowGrid(false);
+        tableView->setGridStyle(Qt::NoPen);
         tableView->setSortingEnabled(true);
         tableView->verticalHeader()->setVisible(false);
 

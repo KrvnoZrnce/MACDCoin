@@ -14,7 +14,10 @@
    <string>Options</string>
   </property>
   <property name="autoFillBackground">
-   <bool>true</bool>
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(27, 40, 54); color:white;</string>
   </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
@@ -26,13 +29,13 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="autoFillBackground">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="tabPosition">
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tabMain">
       <attribute name="title">
@@ -434,6 +437,9 @@
        <property name="text">
         <string>&amp;OK</string>
        </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -447,6 +453,9 @@
        <property name="autoDefault">
         <bool>false</bool>
        </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -459,6 +468,9 @@
        </property>
        <property name="autoDefault">
         <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
