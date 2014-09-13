@@ -253,11 +253,9 @@ void OverviewPage::setBittrexManager()
     QObject::connect(nam, SIGNAL(finished(QNetworkReply*)),
              this, SLOT(finishedSlot(QNetworkReply*)));
 
-    getGeneralInfo();
-
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(getGeneralInfo()));
-    timer->start(600000);
+    timer->start(300000);
 }
 
 void OverviewPage::paintEvent(QPaintEvent *)
@@ -296,8 +294,6 @@ void OverviewPage::setBalance(qint64 balance, qint64 stake, qint64 unconfirmedBa
     bool showImmature = immatureBalance != 0;
     ui->labelImmature->setVisible(showImmature);
     ui->labelImmatureText->setVisible(showImmature);
-
-    getGeneralInfo();
 }
 
 void OverviewPage::setNumTransactions(int count)
@@ -333,6 +329,7 @@ void OverviewPage::setModel(WalletModel *model)
 
     // update the display unit, to not use the default ("LeL")
     updateDisplayUnit();
+    getGeneralInfo();
 }
 
 void OverviewPage::updateDisplayUnit()

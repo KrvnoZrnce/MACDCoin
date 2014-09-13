@@ -203,7 +203,8 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     statusBar()->addWidget(progressBar);
     statusBar()->addPermanentWidget(frameBlocks);
     statusBar()->setObjectName("blueChipStatusBar");
-    statusBar()->setStyleSheet("#blueChipStatusBar {background-color: rgb(22, 40, 52); border-top-color: rgba(37, 170, 225, 255); border-top-style:inset; border-top-width:1px; padding-top:16px;} QToolTip { color: #efefef; background-color: #434343; border:0px;}");
+    statusBar()->setStyleSheet("#blueChipStatusBar {background-color: rgb(22, 40, 52); border-top-color: rgba(37, 170, 225, 255); border-top-style:inset; border-top-width:1px; padding-top:0px;} QToolTip { color: #efefef; background-color: #434343; border:0px;}");
+    statusBar()->setSizeGripEnabled(false);
 
     syncIconMovie = new QMovie(":/movies/update_spinner", "mng", this);
 
@@ -984,7 +985,11 @@ void BitcoinGUI::toggleHidden()
 
 void BitcoinGUI::updateMintingIcon()
 {
+#ifdef Q_OS_MAC
+    centralWidget->setGeometry(0, -20, 820, 600);
+#else
     centralWidget->setGeometry(0, 54, 820, 600);
+#endif
     if (pwalletMain && pwalletMain->IsLocked())
     {
         labelMintingIcon->setToolTip(tr("Not minting because wallet is locked."));
