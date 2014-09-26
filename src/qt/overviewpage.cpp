@@ -15,7 +15,6 @@
 
 #include <QAbstractItemDelegate>
 #include <QPainter>
-#include "json_spirit.h"
 
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 6
@@ -217,6 +216,11 @@ void OverviewPage::updateWealthInBTC(QString price)
 
     ui->inBTCvalue->setText(inBTC.append(" BTC"));
 }
+
+//void OverviewPage::updateMoneySuply()
+//{
+
+//}
 
 void OverviewPage::updateWealthInCNY(QString price)
 {

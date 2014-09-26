@@ -19,6 +19,7 @@
 #include "addresstablemodel.h"
 #include "transactionview.h"
 #include "overviewpage.h"
+#include "macdmarketdata.h"
 #include "bitcoinunits.h"
 #include "guiconstants.h"
 #include "askpassphrasedialog.h"
@@ -76,7 +77,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     notificator(0),
     rpcConsole(0)
 {
-    resize(820, 683);
+    resize(820, 698);
     setFixedSize(size());
     setWindowTitle(tr("MACDCoin") + " - " + tr("Wallet"));
 #ifndef Q_OS_MAC
@@ -121,6 +122,8 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 
     sendCoinsPage = new SendCoinsDialog(this);
 
+    marketPage = new MacdMarketData(this);
+
     signVerifyMessageDialog = new SignVerifyMessageDialog(this);
 
     centralWidget = new QStackedWidget(this);
@@ -129,6 +132,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralWidget->addWidget(addressBookPage);
     centralWidget->addWidget(receiveCoinsPage);
     centralWidget->addWidget(sendCoinsPage);
+    centralWidget->addWidget(marketPage);
     setCentralWidget(centralWidget);
 
     transactionsPage->setStyleSheet("QWidget#transPage{background-color:rgb(27, 40, 54);background-image: url(:/images/base_back);} QWidget{background-color:rgb(27, 40, 54); color:white;} QFrame{background-color:rgba(0,0,0,0);}");
@@ -165,13 +169,14 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     labelBlocksIcon->setObjectName("labelBlocksIcon");
     labelMintingIcon->setObjectName("labelMintingIcon");
     labelEncryptionIcon->setStyleSheet("#labelEncryptionIcon QToolTip {color:#efefef;background-color:#434343;border:0px;}");
-    labelConnectionsIcon->setStyleSheet("#labelConnectionsIcon QToolTip {color:#efefef;background-color:#434343;border:0px;}");
+    labelConnectionsIcon->setStyleSheet("#labelConnectionsIcon QToolTip {margin-left:10px; color:#efefef;background-color:#434343;border:0px;}");
     labelBlocksIcon->setStyleSheet("#labelBlocksIcon QToolTip {color:#efefef;background-color:#434343;border:0px;}");
     labelMintingIcon->setStyleSheet("#labelMintingIcon QToolTip {color:#efefef;background-color:#434343;border:0px;}");
 
     // Set minting pixmap
     labelMintingIcon->setPixmap(QIcon(":/icons/minting").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
     labelMintingIcon->setEnabled(false);
+    labelMintingIcon->setStyleSheet("QLabel{margin-left: 10px;}");
     // Add timer to update minting icon
     QTimer *timerMintingIcon = new QTimer(labelMintingIcon);
     timerMintingIcon->start(MODEL_UPDATE_DELAY);
@@ -186,27 +191,31 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     // Progress bar and label for blocks download
     progressBarLabel = new QLabel();
     progressBarLabel->setVisible(false);
+    progressBarLabel->setStyleSheet("QLabel{color:white; margin-left: 12px;}");
     progressBar = new QProgressBar();
     progressBar->setAlignment(Qt::AlignCenter);
+    progressBar->setFixedWidth(525);
     progressBar->setVisible(false);
 
     // Override style sheet for progress bar for styles that have a segmented progress bar,
     // as they make the text unreadable (workaround for issue #1071)
     // See https://qt-project.org/doc/qt-4.8/gallery.html
     QString curStyle = qApp->style()->metaObject()->className();
-    if(curStyle == "QWindowsStyle" || curStyle == "QWindowsXPStyle")
-    {
-        progressBar->setStyleSheet("QProgressBar { background-color: #e8e8e8; border: 1px solid grey; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #FF8000, stop: 1 orange); border-radius: 7px; margin: 0px; }");
-    }
+    //if(curStyle == "QWindowsStyle" || curStyle == "QWindowsXPStyle")
+    //{
+    //    progressBar->setStyleSheet("QProgressBar {margin-left:15px; background-color: rgba(0,0,0,0); border: 1px solid rgb(37, 170, 225); padding: 2px; text-align: center; } QProgressBar::chunk { background: rgb(37, 170, 225); margin: 0px; }");
+    //}
+
+    progressBar->setStyleSheet("QProgressBar {margin:5px; color:white; background-color: rgba(0,0,0,0); border: 1px solid rgb(37, 170, 225); padding: 2px; text-align: center; } QProgressBar::chunk { background: rgb(37, 170, 225); margin: 0px; }");
 
     statusBar()->addWidget(progressBarLabel);
     statusBar()->addWidget(progressBar);
     statusBar()->addPermanentWidget(frameBlocks);
     statusBar()->setObjectName("blueChipStatusBar");
-    statusBar()->setStyleSheet("#blueChipStatusBar {background-color: rgb(22, 40, 52); border-top-color: rgba(37, 170, 225, 255); border-top-style:inset; border-top-width:1px; padding-top:0px;} QToolTip { color: #efefef; background-color: #434343; border:0px;}");
+    statusBar()->setStyleSheet("#blueChipStatusBar {background-color: rgb(22, 40, 52); border-top-color: rgba(37, 170, 225, 255); border-top-style:inset; border-top-width:1px;} QToolTip { color: #efefef; background-color: #434343; border:0px;}");
     statusBar()->setSizeGripEnabled(false);
 
-    syncIconMovie = new QMovie(":/movies/update_spinner", "mng", this);
+    syncIconMovie = new QMovie(":/movies/update_spinner_new");
 
     // Clicking on a transaction on the overview page simply sends you to transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHistoryPage()));
@@ -270,6 +279,12 @@ void BitcoinGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
+    marketAction = new QAction(QIcon(":/icons/address-book"), tr("&BITTREX"), this);
+    marketAction->setToolTip(tr("MACDCoin market summary and history"));
+    marketAction->setCheckable(true);
+    //addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+    tabGroup->addAction(marketAction);
+
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -280,6 +295,8 @@ void BitcoinGUI::createActions()
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
+    connect(marketAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(marketAction, SIGNAL(triggered()), this, SLOT(gotoMarketPage()));
 
     quitAction = new QAction(QIcon(":/icons/quit"), tr("E&xit"), this);
     quitAction->setToolTip(tr("Quit application"));
@@ -374,7 +391,7 @@ void BitcoinGUI::createToolBars()
     toolbar->addAction(receiveCoinsAction);
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
-    toolbar->addAction(tr("BITTREX"));
+    toolbar->addAction(marketAction);
     toolbar->addAction(tr("EXPLORER"));
     //toolbar->addAction(exportAction);
 
@@ -787,6 +804,18 @@ void BitcoinGUI::gotoAddressBookPage()
     exportAction->setEnabled(true);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
     connect(exportAction, SIGNAL(triggered()), addressBookPage, SLOT(exportClicked()));
+}
+
+void BitcoinGUI::gotoMarketPage()
+{
+    marketAction->setChecked(true);
+    centralWidget->setCurrentWidget(marketPage);
+
+    iconLabel->setStyleSheet("QWidget{background-image: url(:/icons/address-book);margin-left:25px;}");
+
+    //exportAction->setEnabled(true);
+    //disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    //connect(exportAction, SIGNAL(triggered()), addressBookPage, SLOT(exportClicked()));
 }
 
 void BitcoinGUI::gotoReceiveCoinsPage()
