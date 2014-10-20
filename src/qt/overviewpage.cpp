@@ -122,7 +122,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     btcBalance = 0.0;
 
-    setBittrexManager();
+    //setBittrexManager();
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
@@ -257,9 +257,9 @@ void OverviewPage::setBittrexManager()
     QObject::connect(nam, SIGNAL(finished(QNetworkReply*)),
              this, SLOT(finishedSlot(QNetworkReply*)));
 
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(getGeneralInfo()));
-    timer->start(300000);
+    //QTimer *timer = new QTimer(this);
+    //connect(timer, SIGNAL(timeout()), this, SLOT(getGeneralInfo()));
+    //timer->start(300000);
 }
 
 void OverviewPage::paintEvent(QPaintEvent *)
@@ -298,6 +298,8 @@ void OverviewPage::setBalance(qint64 balance, qint64 stake, qint64 unconfirmedBa
     bool showImmature = immatureBalance != 0;
     ui->labelImmature->setVisible(showImmature);
     ui->labelImmatureText->setVisible(showImmature);
+
+    ui->totalValue->setText(QString::number((balance + stake)/1000000, 'f', 8) + " MACD");
 }
 
 void OverviewPage::setNumTransactions(int count)
@@ -333,7 +335,7 @@ void OverviewPage::setModel(WalletModel *model)
 
     // update the display unit, to not use the default ("LeL")
     updateDisplayUnit();
-    getGeneralInfo();
+    //getGeneralInfo();
 }
 
 void OverviewPage::updateDisplayUnit()

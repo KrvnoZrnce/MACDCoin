@@ -52,6 +52,7 @@ public:
     QLabel *lowValue;
     QLabel *btcVolValue;
     QLabel *macdVolValue;
+    QLabel *label_2;
     QHBoxLayout *horizontalLayout_4;
     QTableView *buyTableView;
     QTableView *sellTableView;
@@ -60,6 +61,7 @@ public:
     QGridLayout *gridLayout;
     QTableView *historyTableView;
     QSpacerItem *verticalSpacer;
+    QLabel *label_4;
 
     void setupUi(QWidget *MacdMarketData)
     {
@@ -207,7 +209,7 @@ public:
         formLayout_3->setWidget(2, QFormLayout::FieldRole, askValue);
 
 
-        gridLayout_2->addLayout(formLayout_3, 0, 0, 1, 1);
+        gridLayout_2->addLayout(formLayout_3, 1, 0, 1, 1);
 
         formLayout_4 = new QFormLayout();
         formLayout_4->setObjectName(QString::fromUtf8("formLayout_4"));
@@ -273,10 +275,17 @@ public:
         formLayout_4->setWidget(3, QFormLayout::FieldRole, macdVolValue);
 
 
-        gridLayout_2->addLayout(formLayout_4, 0, 1, 1, 1);
+        gridLayout_2->addLayout(formLayout_4, 1, 1, 1, 1);
 
 
         verticalLayout_3->addWidget(topFrame);
+
+        label_2 = new QLabel(verticalLayoutWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setStyleSheet(QString::fromUtf8("color:white"));
+        label_2->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_3->addWidget(label_2);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
@@ -350,11 +359,18 @@ public:
         historyTableView->horizontalHeader()->setMinimumSectionSize(150);
         historyTableView->verticalHeader()->setVisible(false);
 
-        gridLayout->addWidget(historyTableView, 1, 0, 1, 1);
+        gridLayout->addWidget(historyTableView, 2, 0, 1, 1);
 
         verticalSpacer = new QSpacerItem(20, 5, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         gridLayout->addItem(verticalSpacer, 0, 0, 1, 1);
+
+        label_4 = new QLabel(gridLayoutWidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setStyleSheet(QString::fromUtf8("color:white"));
+        label_4->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_4, 1, 0, 1, 1);
 
         tabWidget->addTab(tab_2, QString());
 
@@ -383,7 +399,9 @@ public:
         lowValue->setText(QApplication::translate("MacdMarketData", "TextLabel", 0, QApplication::UnicodeUTF8));
         btcVolValue->setText(QApplication::translate("MacdMarketData", "TextLabel", 0, QApplication::UnicodeUTF8));
         macdVolValue->setText(QApplication::translate("MacdMarketData", "TextLabel", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("MacdMarketData", "Currently disabled because MACDCoin is not on any exchange", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MacdMarketData", "Summary", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("MacdMarketData", "Currently disabled because MACDCoin is not on any exchange", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MacdMarketData", "History", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

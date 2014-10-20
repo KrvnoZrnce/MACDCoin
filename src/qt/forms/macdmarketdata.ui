@@ -141,7 +141,7 @@ border-top-width:1px;
          <property name="bottomMargin">
           <number>6</number>
          </property>
-         <item row="0" column="0">
+         <item row="1" column="0">
           <layout class="QFormLayout" name="formLayout_3">
            <property name="fieldGrowthPolicy">
             <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
@@ -259,7 +259,7 @@ border-top-width:1px;
            </item>
           </layout>
          </item>
-         <item row="0" column="1">
+         <item row="1" column="1">
           <layout class="QFormLayout" name="formLayout_4">
            <property name="topMargin">
             <number>1</number>
@@ -402,6 +402,19 @@ border-top-width:1px;
        </widget>
       </item>
       <item>
+       <widget class="QLabel" name="label_2">
+        <property name="styleSheet">
+         <string notr="true">color:white</string>
+        </property>
+        <property name="text">
+         <string>Currently disabled because MACDCoin is not on any exchange</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
        <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0">
         <property name="leftMargin">
          <number>6</number>
@@ -512,7 +525,7 @@ border-style:solid;}</string>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="0">
+      <item row="2" column="0">
        <widget class="QTableView" name="historyTableView">
         <property name="styleSheet">
          <string notr="true">#historyTableView{
@@ -563,6 +576,19 @@ border-style:solid;}</string>
          </size>
         </property>
        </spacer>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="styleSheet">
+         <string notr="true">color:white</string>
+        </property>
+        <property name="text">
+         <string>Currently disabled because MACDCoin is not on any exchange</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

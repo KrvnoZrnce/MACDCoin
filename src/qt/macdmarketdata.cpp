@@ -66,7 +66,7 @@ MacdMarketData::MacdMarketData(QWidget *parent) :
                              }
                          
 ");*/
-    setBittrexManager();
+    //setBittrexManager();
 }
 
 void MacdMarketData::paintEvent(QPaintEvent *)
@@ -83,9 +83,9 @@ void MacdMarketData::setBittrexManager()
     QObject::connect(nam, SIGNAL(finished(QNetworkReply*)),
              this, SLOT(finishedSlot(QNetworkReply*)));
 
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(getOverview()));
-    timer->start(60000);
+    //QTimer *timer = new QTimer(this);
+    //connect(timer, SIGNAL(timeout()), this, SLOT(getOverview()));
+    //timer->start(60000);
 }
 
 void MacdMarketData::getOverview()

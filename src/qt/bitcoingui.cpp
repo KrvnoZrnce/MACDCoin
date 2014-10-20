@@ -279,7 +279,7 @@ void BitcoinGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
-    marketAction = new QAction(QIcon(":/icons/address-book"), tr("&BITTREX"), this);
+    marketAction = new QAction(QIcon(":/icons/address-book"), tr("&MARKET"), this);
     marketAction->setToolTip(tr("MACDCoin market summary and history"));
     marketAction->setCheckable(true);
     //addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));

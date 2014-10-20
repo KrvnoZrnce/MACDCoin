@@ -47,6 +47,8 @@ public:
     QLabel *labelUnconfirmed;
     QLabel *labelImmatureText;
     QLabel *labelImmature;
+    QLabel *label_14;
+    QLabel *totalValue;
     QFrame *line;
     QFrame *verticalFrame;
     QVBoxLayout *verticalLayout_5;
@@ -232,6 +234,21 @@ public:
         labelImmature->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(3, QFormLayout::FieldRole, labelImmature);
+
+        label_14 = new QLabel(frame);
+        label_14->setObjectName(QString::fromUtf8("label_14"));
+        label_14->setStyleSheet(QString::fromUtf8("color:white"));
+        label_14->setIndent(10);
+
+        formLayout_2->setWidget(4, QFormLayout::LabelRole, label_14);
+
+        totalValue = new QLabel(frame);
+        totalValue->setObjectName(QString::fromUtf8("totalValue"));
+        totalValue->setStyleSheet(QString::fromUtf8("color:white"));
+        totalValue->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        totalValue->setIndent(10);
+
+        formLayout_2->setWidget(4, QFormLayout::FieldRole, totalValue);
 
 
         verticalLayout_4->addLayout(formLayout_2);
@@ -550,6 +567,8 @@ public:
 #ifndef QT_NO_TOOLTIP
         labelImmature->setToolTip(QApplication::translate("OverviewPage", "Mined balance that has not yet matured", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
+        label_14->setText(QApplication::translate("OverviewPage", "Total", 0, QApplication::UnicodeUTF8));
+        totalValue->setText(QApplication::translate("OverviewPage", "0 MACD", 0, QApplication::UnicodeUTF8));
         label_10->setText(QApplication::translate("OverviewPage", "WEALTH", 0, QApplication::UnicodeUTF8));
         label_11->setText(QApplication::translate("OverviewPage", "in BTC", 0, QApplication::UnicodeUTF8));
         inBTCvalue->setText(QApplication::translate("OverviewPage", "0 BTC", 0, QApplication::UnicodeUTF8));
